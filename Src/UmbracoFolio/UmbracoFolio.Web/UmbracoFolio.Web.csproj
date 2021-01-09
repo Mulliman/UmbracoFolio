@@ -298,6 +298,14 @@
     <Content Include="App_Plugins\uSync8\uSyncService.js" />
     <Content Include="App_Plugins\uSync8\usync_872.css" />
     <Content Include="App_Plugins\uSync8\uSync_872.js" />
+    <Content Include="assets\js\vendor\uikit-icons.js" />
+    <Content Include="assets\js\vendor\uikit.js" />
+    <Content Include="assets\scss\umbracofolio.css">
+      <DependentUpon>umbracofolio.scss</DependentUpon>
+    </Content>
+    <Content Include="assets\scss\umbracofolio.min.css">
+      <DependentUpon>umbracofolio.css</DependentUpon>
+    </Content>
     <Content Include="config\grid.editors.config.js" />
     <Content Include="config\Lang\cs-CZ.user.xml" />
     <Content Include="config\Lang\da-DK.user.xml" />
@@ -339,6 +347,11 @@
     <Content Include="config\uSync8.config" />
     <Content Include="App_Plugins\uSync8\package.manifest" />
     <Content Include="App_Plugins\uSync8\addons.json" />
+    <Content Include="assets\scss\umbracofolio.scss" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
@@ -353,12 +366,16 @@
     <Content Include="Views\UFHome.cshtml" />
     <Content Include="Views\UFPage.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UFFeatureImage.cshtml" />
+    <Content Include="Views\UFBase.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\img\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
