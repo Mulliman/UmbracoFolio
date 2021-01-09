@@ -298,6 +298,7 @@
     <Content Include="App_Plugins\uSync8\uSyncService.js" />
     <Content Include="App_Plugins\uSync8\usync_872.css" />
     <Content Include="App_Plugins\uSync8\uSync_872.js" />
+    <Content Include="assets\img\combo-logo.svg" />
     <Content Include="assets\js\vendor\uikit-icons.js" />
     <Content Include="assets\js\vendor\uikit.js" />
     <Content Include="assets\scss\umbracofolio.css">
@@ -330,6 +331,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Data\Models\all.generated.cs" />
+    <Compile Include="Helpers\NavigationHelper.cs" />
+    <Compile Include="Helpers\SettingsHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -348,6 +352,7 @@
     <Content Include="App_Plugins\uSync8\package.manifest" />
     <Content Include="App_Plugins\uSync8\addons.json" />
     <Content Include="assets\scss\umbracofolio.scss" />
+    <Content Include="assets\scss\components\header.scss" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -374,9 +379,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="assets\img\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -6,7 +6,7 @@ using  Umbraco.Core.Models;
 using  Umbraco.Core.Models.PublishedContent;
 using  Umbraco.Web;
 using  Umbraco.ModelsBuilder.Embedded;
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "d398892d4a46f750")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "3c11ae87bb97231b")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -179,6 +179,86 @@ namespace Umbraco.Web.PublishedModels
 		/// <summary>Static getter for Content</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
 		public static global::Umbraco.Core.Models.Blocks.BlockListModel GetContent(IUfContent that) => that.Value<global::Umbraco.Core.Models.Blocks.BlockListModel>("content");
+	}
+
+	/// <summary>UF.ConfigurationFolder</summary>
+	[PublishedModel("ufConfigurationFolder")]
+	public partial class UfConfigurationFolder : PublishedContentModel
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		public new const string ModelTypeAlias = "ufConfigurationFolder";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<UfConfigurationFolder, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public UfConfigurationFolder(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+	}
+
+	/// <summary>UF.SiteConfiguration</summary>
+	[PublishedModel("ufSiteConfiguration")]
+	public partial class UfSiteConfiguration : PublishedContentModel
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		public new const string ModelTypeAlias = "ufSiteConfiguration";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<UfSiteConfiguration, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public UfSiteConfiguration(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+
+		///<summary>
+		/// Footer Logo
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		[ImplementPropertyType("footerLogo")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent FooterLogo => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("footerLogo");
+
+		///<summary>
+		/// Footer Navigation Pages
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		[ImplementPropertyType("footerNavigationPages")]
+		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link> FooterNavigationPages => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link>>("footerNavigationPages");
+
+		///<summary>
+		/// Header Logo
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		[ImplementPropertyType("headerLogo")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent HeaderLogo => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("headerLogo");
+
+		///<summary>
+		/// Header Navigation Pages
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		[ImplementPropertyType("headerNavigationPages")]
+		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link> HeaderNavigationPages => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link>>("headerNavigationPages");
 	}
 
 	/// <summary>Folder</summary>

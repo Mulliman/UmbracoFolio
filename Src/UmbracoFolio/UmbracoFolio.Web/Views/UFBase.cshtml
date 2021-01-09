@@ -1,6 +1,8 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
 @{
     Layout = null;
+
+    var settings = UmbracoFolio.Web.Helpers.SettingsHelper.GetSiteSettings(Model);
 }
 <!doctype html>
 <html lang="en">
@@ -27,7 +29,33 @@
 </head>
 
 <body class="umbracofolio">
-    <h1>Hello, World!</h1>
+    <div class="uk-container uf-header">
+        <nav class="uk-navbar-container uk-navbar-transparent uk-height-xsmall" uk-navbar>
+            <div class="uk-navbar-center">
+                <div class="uk-container uk-align-center uk-text-center uk-margin-remove-bottom">
+                    <a href="/"><img class="uf-logo-image" src="@settings.HeaderLogo.Url()" alt="Logo" /></a>
+                </div>
+            </div>
+
+            @if (settings.HeaderNavigationPages?.Any() == true)
+            {
+                <div class="uk-navbar-right">
+                    <ul class="uk-navbar-nav uk-visible@m main-nav">
+                        @foreach (var page in settings.HeaderNavigationPages)
+                        {
+                            var activeClass = UmbracoFolio.Web.Helpers.NavigationHelper.IsPageActive(page.Url, Model.Url())
+                                ? "uk-active"
+                                : "";
+                            <li class="@activeClass"><a href="@page.Url">@page.Name</a></li>
+                        }
+                    </ul>
+                    <a href="#" class="uk-navbar-toggle uk-hidden@m" uk-navbar-toggle-icon
+                       uk-toggle="target: #MobileNav"></a>
+                </div>
+            }
+
+        </nav>
+    </div>
 
     @RenderBody()
 
