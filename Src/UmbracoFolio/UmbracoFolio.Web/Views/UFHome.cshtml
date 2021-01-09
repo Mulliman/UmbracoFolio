@@ -1,5 +1,18 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.UFhome>
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Web.PublishedModels.UfHome>
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
-	Layout = null;
+	Layout = "UFBase.cshtml";
 }
+
+@{
+    if (!Model.Content.Any()) { return; }
+}
+<div class="umb-block-list">
+    @foreach (var block in Model.Content)
+    {
+        if (block?.ContentUdi == null) { continue; }
+        var data = block.Content;
+        @Html.Partial("BlockList/Components/" + data.ContentType.Alias, block)        
+    }
+</div>
+

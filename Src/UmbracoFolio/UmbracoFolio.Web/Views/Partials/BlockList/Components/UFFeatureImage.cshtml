@@ -1,0 +1,7 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+
+@{ 
+    var image = Model.Content.Value<IPublishedContent>("image");
+}
+
+<img src="@image.Url()" alt="@image.Name" />

@@ -319,6 +319,9 @@
     <Content Include="Views\Partials\Grid\Bootstrap3.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap3-Fluid.cshtml" />
     <Content Include="Views\Partials\BlockList\Default.cshtml" />
+    <Content Include="Views\UFHome.cshtml" />
+    <Content Include="Views\UFPage.cshtml" />
+    <Content Include="Views\Partials\BlockList\Components\UFFeatureImage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
