@@ -370,6 +370,7 @@
     <Content Include="assets\scss\components\footer.scss" />
     <Content Include="App_Data\Models\models.hash" />
     <Content Include="assets\scss\components\cards.scss" />
+    <Content Include="assets\scss\components\utilities.scss" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
