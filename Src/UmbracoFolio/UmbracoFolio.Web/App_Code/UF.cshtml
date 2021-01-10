@@ -1,0 +1,12 @@
+﻿@using Umbraco.Web;
+@using Umbraco.Web.Models;
+@using Umbraco.Core.Models.PublishedContent;
+
+@helper RenderNavListItem(Link link, string currentPagePath, string classes)
+{
+    var activeClass = UmbracoFolio.Web.Helpers.NavigationHelper.IsPageActive(link.Url, currentPagePath)
+                        ? "uk-active"
+                        : "";
+
+    <li class="@activeClass @classes"><a href="@link.Url">@link.Name</a></li>
+}

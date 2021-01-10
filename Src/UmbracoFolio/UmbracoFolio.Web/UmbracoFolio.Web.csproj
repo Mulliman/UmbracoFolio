@@ -353,6 +353,7 @@
     <Content Include="App_Plugins\uSync8\addons.json" />
     <Content Include="assets\scss\umbracofolio.scss" />
     <Content Include="assets\scss\components\header.scss" />
+    <Content Include="App_Code\UF.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -372,6 +373,7 @@
     <Content Include="Views\UFPage.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UFFeatureImage.cshtml" />
     <Content Include="Views\UFBase.cshtml" />
+    <Content Include="Views\Partials\UF\_Header.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,7 +1,58 @@
 ﻿$logo-height: 60px;
+$logo-gap-top: 10px;
+$logo-gap-bottom: 10px;
+
+$nav-font-colour: #777;
+$nav-font-colour--hover: #333;
+$nav-font-colour--active: #000;
+$nav-font-weight: 500;
+$nav-font-size: 0.9167rem;
+
+$mobile-nav-font-size: 1.125rem;
+$mobile-nav-gap-top: 0;
+$mobile-nav-gap-bottom: 10px;
 
 .uf-header {
-    .uf-logo-image{
-        height:$logo-height;
+    .uk-navbar {
+        margin-top: $logo-gap-top;
+        margin-bottom: $logo-gap-bottom;
+
+        .uf-logo-image {
+            height: $logo-height;
+        }
+    }
+
+    .main-nav {
+        li {
+            a {
+                text-transform: uppercase;
+                font-weight: $nav-font-weight;
+                font-size: $nav-font-size;
+                color: $nav-font-colour;
+
+                &:hover {
+                    color: $nav-font-colour--hover;
+                }
+            }
+
+            &.uk-active {
+                a {
+                    color: $nav-font-colour--active;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        &.main-nav--mobile {
+            margin-top: $mobile-nav-gap-top;
+            margin-bottom: $mobile-nav-gap-bottom;
+            padding-bottom: 0;
+
+            li {
+                a {
+                    font-size: $mobile-nav-font-size;
+                }
+            }
+        }
     }
 }

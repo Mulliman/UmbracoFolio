@@ -1,0 +1,53 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Web.PublishedModels.UfSiteConfiguration>
+
+@if (Model == null)
+{
+    return;
+}
+
+<div class="uk-container uf-header">
+    <nav class="uk-navbar-container uk-navbar-transparent uk-height-xsmall" uk-navbar>
+        <div class="uk-navbar-center">
+            <div class="uk-container uk-align-center uk-text-center uk-margin-remove-bottom">
+                <a href="/"><img class="uf-logo-image" src="@Model.HeaderLogo.Url()" alt="Logo" /></a>
+            </div>
+        </div>
+
+        @if (Model.HeaderNavigationPages?.Any() == true)
+        {
+            <!-- Desktop Navigation -->
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav uk-visible@m main-nav">
+                    @foreach (var page in Model.HeaderNavigationPages)
+                    {
+                        @UF.RenderNavListItem(page, Request.Url.LocalPath, "")
+                    }
+                </ul>
+                <a href="#" class="uk-navbar-toggle uk-hidden@m" uk-navbar-toggle-icon
+                   uk-toggle="target: #MobileNav"></a>
+            </div>
+        }
+
+    </nav>
+
+    @if (Model.HeaderNavigationPages?.Any() == true)
+    {
+        <div id="MobileNav" class="uk-card uk-card-body uk-padding-remove" hidden>
+            <!-- Tablet Navigation -->
+            <ul class="uk-subnav uk-visible@s uk-hidden@m uk-flex uk-flex-center main-nav main-nav--mobile">
+                @foreach (var page in Model.HeaderNavigationPages)
+                {
+                    @UF.RenderNavListItem(page, Request.Url.LocalPath, "")
+                }
+            </ul>
+
+            <!-- Mobile Navigation -->
+            <ul class="uk-nav-default uk-nav-center uk-nav-parent-icon uk-hidden@s uk-padding-small uk-padding-remove-top main-nav main-nav--mobile" uk-nav>
+                @foreach (var page in Model.HeaderNavigationPages)
+                {
+                    @UF.RenderNavListItem(page, Request.Url.LocalPath, "")
+                }
+            </ul>
+        </div>
+    }
+</div>

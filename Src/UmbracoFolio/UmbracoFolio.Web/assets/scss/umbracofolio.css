@@ -9356,5 +9356,27 @@ iframe.uk-cover {
   h3 {
     page-break-after: avoid; } }
 
-.uf-header .uf-logo-image {
-  height: 60px; }
+.uf-header .uk-navbar {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+  .uf-header .uk-navbar .uf-logo-image {
+    height: 60px; }
+
+.uf-header .main-nav li a {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.9167rem;
+  color: #777; }
+  .uf-header .main-nav li a:hover {
+    color: #333; }
+
+.uf-header .main-nav li.uk-active a {
+  color: #000;
+  font-weight: bold; }
+
+.uf-header .main-nav.main-nav--mobile {
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding-bottom: 0; }
+  .uf-header .main-nav.main-nav--mobile li a {
+    font-size: 1.125rem; }

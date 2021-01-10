@@ -2,9 +2,9 @@
 {
     public class NavigationHelper
     {
-        public static bool IsPageActive(string pageUrl, string currentPageUrl)
+        public static bool IsPageActive(string pageUrl, string currentPagePath)
         {
-            return currentPageUrl.StartsWith(pageUrl);
+            return currentPagePath.StartsWith(pageUrl);
         }
     }
 }
