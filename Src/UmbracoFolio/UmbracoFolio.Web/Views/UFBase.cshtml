@@ -3,7 +3,7 @@
     Layout = null;
 
     var settings = UmbracoFolio.Web.Helpers.SettingsHelper.GetSiteSettings(Model);
-    var cachePeriod = 60 * 60; // 1 hour
+    var cachePeriod = 1; // 60 * 60; // 1 hour
 }
 <!doctype html>
 <html lang="en">
@@ -33,6 +33,9 @@
     @Html.CachedPartial("~/Views/Partials/UF/_Header.cshtml", settings, cachePeriod, cacheByPage: true)
 
     @RenderBody()
+
+
+    @Html.CachedPartial("~/Views/Partials/UF/_Footer.cshtml", settings, cachePeriod, cacheByPage: true)
 
     <script src="~/assets/js/vendor/uikit.js"></script>
     <script src="~/assets/js/vendor/uikit-icons.js"></script>

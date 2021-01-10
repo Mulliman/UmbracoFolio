@@ -9380,3 +9380,33 @@ iframe.uk-cover {
   padding-bottom: 0; }
   .uf-header .main-nav.main-nav--mobile li a {
     font-size: 1.125rem; }
+
+.uf-footer .footer-nav li a {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.9167rem;
+  color: #777; }
+  .uf-footer .footer-nav li a:hover {
+    color: #333; }
+
+.uf-footer .footer-nav li.uk-active a {
+  color: #000;
+  font-weight: bold; }
+
+.uf-footer .footer-nav.footer-nav--mobile {
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding-bottom: 0; }
+  .uf-footer .footer-nav.footer-nav--mobile li a {
+    font-size: 1.125rem; }
+
+.uf-footer .uf-footer-blocks {
+  background: #111; }
+  .uf-footer .uf-footer-blocks .uk-card {
+    background: #070707; }
+
+.uf-card--simple-image img {
+  width: 80%;
+  height: 80%;
+  max-width: 80%;
+  max-height: 80%; }

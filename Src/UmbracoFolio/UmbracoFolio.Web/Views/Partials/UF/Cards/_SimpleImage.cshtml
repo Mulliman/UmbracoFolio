@@ -1,0 +1,14 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Web.PublishedModels.UfCardsSimpleImage>
+
+@if (Model == null)
+{
+    return;
+}
+
+<div>
+    <div class="uk-card uk-card-body uk-text-center uk-flex uk-flex-middle uk-flex-center uf-card--simple-image @ViewData["classes"]">
+        <div class="uk-text-center">
+            <img src="@Model.Image.GetCropUrl()" />
+        </div>
+    </div>
+</div>

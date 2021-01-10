@@ -1,0 +1,57 @@
+﻿
+$footer-nav-background-colour: #111;
+$footer-nav-block-background-colour: #070707;
+
+$footer-nav-font-colour: #777;
+$footer-nav-font-colour--hover: #333;
+$footer-nav-font-colour--active: #000;
+$footer-nav-font-weight: 500;
+$footer-nav-font-size: 0.9167rem;
+
+$footer-mobile-nav-font-size: 1.125rem;
+$footer-mobile-nav-gap-top: 0;
+$footer-mobile-nav-gap-bottom: 10px;
+
+.uf-footer {
+    .footer-nav {
+        li {
+            a {
+                text-transform: uppercase;
+                font-weight: $footer-nav-font-weight;
+                font-size: $footer-nav-font-size;
+                color: $footer-nav-font-colour;
+
+                &:hover {
+                    color: $footer-nav-font-colour--hover;
+                }
+            }
+
+            &.uk-active {
+                a {
+                    color: $footer-nav-font-colour--active;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        &.footer-nav--mobile {
+            margin-top: $footer-mobile-nav-gap-top;
+            margin-bottom: $footer-mobile-nav-gap-bottom;
+            padding-bottom: 0;
+
+            li {
+                a {
+                    font-size: $footer-mobile-nav-font-size;
+                }
+            }
+        }
+    }
+
+    .uf-footer-blocks {
+        background: $footer-nav-background-colour;
+
+        .uk-card {
+            background: $footer-nav-block-background-colour;
+        }
+    }
+}

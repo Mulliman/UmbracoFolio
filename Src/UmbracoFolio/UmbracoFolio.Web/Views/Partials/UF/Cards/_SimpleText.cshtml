@@ -1,0 +1,12 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Web.PublishedModels.UfCardsSimpleText>
+
+@if (Model == null)
+{
+    return;
+}
+
+<div>
+    <div class="uk-card uk-card-body @ViewData["classes"]">
+        @Html.Raw(Model.RichText)
+    </div>
+</div>

@@ -1,0 +1,55 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Web.PublishedModels.UfSiteConfiguration>
+
+@if (Model == null)
+{
+    return;
+}
+
+<div class="uf-footer">
+    @if (Model.FooterNavigationPages?.Any() == true)
+    {
+        <div class="uk-section uk-section-xsmall uk-section-secondary">
+            <ul class="uk-subnav uk-visible@s uk-flex uk-flex-center footer-nav uk-margin-remove-bottom">
+                @foreach (var page in Model.HeaderNavigationPages)
+                {
+                    @UF.RenderNavListItem(page, Request.Url.LocalPath, "")
+                }
+            </ul>
+
+            <ul class="uk-nav-default uk-nav-center uk-nav-parent-icon uk-hidden@s uk-padding-small uk-padding-remove-top footer-nav footer-nav--mobile" uk-nav>
+                @foreach (var page in Model.HeaderNavigationPages)
+                {
+                    @UF.RenderNavListItem(page, Request.Url.LocalPath, "")
+                }
+            </ul>
+        </div>
+    }
+
+    <div class="uk-section uk-section-small uk-section-secondary uf-footer-blocks">
+        <div class="uk-container">
+
+            <div class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-4@l uk-flex-center uk-text-center"
+                 uk-height-match="target: > div > .uk-card" uk-grid>
+                @*<div>
+                    <div class="uk-card uk-card-secondary uk-card-body uk-text-center uk-flex uk-flex-middle" style="background: #070707">
+                        <div class="uk-text-center">
+                            <img src="~/assets/img/combo-logo.svg" style="max-width:80%;" />
+                        </div>
+                    </div>
+                </div>*@
+
+                @foreach (var card in Model.FooterBlocks)
+                {
+                    if (card.ContentType.Alias == UfCardsSimpleText.ModelTypeAlias)
+                    {
+                        @Html.Partial("~/Views/Partials/UF/Cards/_SimpleText.cshtml", card as UfCardsSimpleText, new ViewDataDictionary { { "classes", "uk-card-secondary" } });
+                    }
+                    else if (card.ContentType.Alias == UfCardsSimpleImage.ModelTypeAlias)
+                    {
+                        @Html.Partial("~/Views/Partials/UF/Cards/_SimpleImage.cshtml", card as UfCardsSimpleImage, new ViewDataDictionary { { "classes", "uk-card-secondary" } });
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
