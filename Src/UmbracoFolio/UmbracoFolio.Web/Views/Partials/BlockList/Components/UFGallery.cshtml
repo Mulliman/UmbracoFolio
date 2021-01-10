@@ -11,6 +11,7 @@
     var tabletGridClass = $"uk-child-width-1-{content.AmountOfColumnsOnTablet}@s";
 
     var sectionClass = string.IsNullOrEmpty(settings?.RowColourTheme) ? null : "uk-section-" + settings?.RowColourTheme.ToLower();
+    sectionClass += string.IsNullOrEmpty(settings?.Spacing) ? null : " uk-section-" + settings?.Spacing.ToLower();
     var imageBorderClass = string.IsNullOrEmpty(content?.ImageBorderSize) ? null : "uf-bordered-" + content?.ImageBorderSize.ToLower();
 }
 

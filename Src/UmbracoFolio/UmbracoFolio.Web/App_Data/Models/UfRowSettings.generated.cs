@@ -50,5 +50,12 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
 		[ImplementPropertyType("rowColourTheme")]
 		public string RowColourTheme => this.Value<string>("rowColourTheme");
+
+		///<summary>
+		/// Spacing
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		[ImplementPropertyType("spacing")]
+		public string Spacing => this.Value<string>("spacing");
 	}
 }

@@ -24,3 +24,8 @@ $lightbox-toolbar-background: none;
 @import "components/cards";
 @import "components/utilities";
 @import "components/images";
+
+.uk-section-none {
+    padding-top: 0;
+    padding-bottom: 0;
+}
