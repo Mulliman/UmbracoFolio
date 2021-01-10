@@ -9461,3 +9461,7 @@ iframe.uk-cover {
 @media (max-width: 640px) {
   .uk-visibility-m {
     visibility: hidden; } }
+
+.uf-image-full-width {
+  max-width: 100%;
+  width: 100%; }

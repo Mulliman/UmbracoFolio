@@ -343,6 +343,7 @@
     <Compile Include="App_Data\Models\UfHeroFeatureImage.generated.cs" />
     <Compile Include="App_Data\Models\UfHome.generated.cs" />
     <Compile Include="App_Data\Models\UfImage.generated.cs" />
+    <Compile Include="App_Data\Models\UfLargeImage.generated.cs" />
     <Compile Include="App_Data\Models\UfPage.generated.cs" />
     <Compile Include="App_Data\Models\UfRichText.generated.cs" />
     <Compile Include="App_Data\Models\UfSiteConfiguration.generated.cs" />
@@ -372,6 +373,7 @@
     <Content Include="App_Data\Models\models.hash" />
     <Content Include="assets\scss\components\cards.scss" />
     <Content Include="assets\scss\components\utilities.scss" />
+    <Content Include="assets\scss\components\images.scss" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -396,6 +398,7 @@
     <Content Include="Views\Partials\UF\Cards\_SimpleText.cshtml" />
     <Content Include="Views\Partials\UF\Cards\_SimpleImage.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UFHeroFeatureImage.cshtml" />
+    <Content Include="Views\Partials\BlockList\Components\UFLargeImage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = Model.Content as UfLargeImage;
+}
+
+@if (content == null)
+{
+    return;
+}
+
+<div class="uk-section">
+    <div class="uk-container">
+        <img src="@content.Image.Url()" alt="@content.Image.Name" class="uf-image-full-width">
+    </div>
+</div>
