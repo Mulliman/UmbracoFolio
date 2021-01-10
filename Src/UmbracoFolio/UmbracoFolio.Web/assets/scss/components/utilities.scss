@@ -1,4 +1,14 @@
-﻿// Blurs
+﻿// Backgrounds
+
+.uf-background-dark-translucent {
+    background: rgba(0,0,0, 0.85);
+}
+
+.uf-background-light-translucent {
+    background: rgba(255,255,255, 0.85);
+}
+
+// Blurs
 
 .uf-blurred-background-image {
     position: relative;
@@ -30,8 +40,37 @@
     box-shadow: 0 0 20px rgba(0,0,0,0.5) inset;
 }
 
+.uf-text-shadow{
+    text-shadow: 0 0 10px black;
+}
+
 // Borders
 
-.uf-bordered {
+.uf-bordered-thick {
     border: 10px solid white;
+}
+
+.uf-bordered {
+    border: 5px solid white;
+}
+
+.uf-bordered-thin {
+    border: 2px solid white;
+}
+
+// Spacing
+
+.uf-compact-text{
+    h1,h2,h3,h4,h5,h6,p{
+        margin:0;
+        padding:0;
+    }
+}
+
+// Visibility
+
+@media(max-width: 640px) {
+    .uk-visibility-m {
+        visibility: hidden;
+    }
 }

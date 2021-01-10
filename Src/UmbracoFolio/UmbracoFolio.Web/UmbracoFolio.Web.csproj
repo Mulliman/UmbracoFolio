@@ -340,6 +340,7 @@
     <Compile Include="App_Data\Models\UfConfigurationFolder.generated.cs" />
     <Compile Include="App_Data\Models\UfContent.generated.cs" />
     <Compile Include="App_Data\Models\UfFeatureImage.generated.cs" />
+    <Compile Include="App_Data\Models\UfHeroFeatureImage.generated.cs" />
     <Compile Include="App_Data\Models\UfHome.generated.cs" />
     <Compile Include="App_Data\Models\UfImage.generated.cs" />
     <Compile Include="App_Data\Models\UfPage.generated.cs" />
@@ -394,6 +395,7 @@
     <Content Include="Views\Partials\UF\_Footer.cshtml" />
     <Content Include="Views\Partials\UF\Cards\_SimpleText.cshtml" />
     <Content Include="Views\Partials\UF\Cards\_SimpleImage.cshtml" />
+    <Content Include="Views\Partials\BlockList\Components\UFHeroFeatureImage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
