@@ -2,6 +2,10 @@
 
 @{
     var content = Model.Content as UfLargeImage;
+    var settings = Model.Settings as UfRowSettings;
+
+    var sectionClass = string.IsNullOrEmpty(settings?.RowColourTheme) ? null : "uk-section-" + settings?.RowColourTheme.ToLower();
+    var imageBorderClass = string.IsNullOrEmpty(content?.ImageBorderSize) ? null : "uf-bordered-" + content?.ImageBorderSize.ToLower();
 }
 
 @if (content == null)
@@ -9,8 +13,8 @@
     return;
 }
 
-<div class="uk-section">
+<div class="uk-section @sectionClass">
     <div class="uk-container">
-        <img src="@content.Image.Url()" alt="@content.Image.Name" class="uf-image-full-width">
+        <img src="@content.Image.Url()" alt="@content.Image.Name" class="uf-image-full-width @imageBorderClass">
     </div>
 </div>

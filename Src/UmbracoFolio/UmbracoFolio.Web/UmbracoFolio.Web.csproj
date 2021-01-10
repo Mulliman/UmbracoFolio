@@ -340,12 +340,17 @@
     <Compile Include="App_Data\Models\UfConfigurationFolder.generated.cs" />
     <Compile Include="App_Data\Models\UfContent.generated.cs" />
     <Compile Include="App_Data\Models\UfFeatureImage.generated.cs" />
+    <Compile Include="App_Data\Models\UfGallery.generated.cs" />
+    <Compile Include="App_Data\Models\UfGalleryDisplaySettings.generated.cs" />
     <Compile Include="App_Data\Models\UfHeroFeatureImage.generated.cs" />
     <Compile Include="App_Data\Models\UfHome.generated.cs" />
     <Compile Include="App_Data\Models\UfImage.generated.cs" />
+    <Compile Include="App_Data\Models\UfImageBorder.generated.cs" />
+    <Compile Include="App_Data\Models\UfImages.generated.cs" />
     <Compile Include="App_Data\Models\UfLargeImage.generated.cs" />
     <Compile Include="App_Data\Models\UfPage.generated.cs" />
     <Compile Include="App_Data\Models\UfRichText.generated.cs" />
+    <Compile Include="App_Data\Models\UFrowSettings.generated.cs" />
     <Compile Include="App_Data\Models\UfSiteConfiguration.generated.cs" />
     <Compile Include="Helpers\NavigationHelper.cs" />
     <Compile Include="Helpers\SettingsHelper.cs" />
@@ -399,6 +404,7 @@
     <Content Include="Views\Partials\UF\Cards\_SimpleImage.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UFHeroFeatureImage.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UFLargeImage.cshtml" />
+    <Content Include="Views\Partials\BlockList\Components\UFGallery.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

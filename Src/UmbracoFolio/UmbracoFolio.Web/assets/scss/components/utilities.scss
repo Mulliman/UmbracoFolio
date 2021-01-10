@@ -46,11 +46,15 @@
 
 // Borders
 
+.uf-bordered-none {
+    border: none;
+}
+
 .uf-bordered-thick {
     border: 10px solid white;
 }
 
-.uf-bordered {
+.uf-bordered, .uf-bordered-normal {
     border: 5px solid white;
 }
 

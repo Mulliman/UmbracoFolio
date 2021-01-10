@@ -21,7 +21,7 @@ namespace Umbraco.Web.PublishedModels
 {
 	/// <summary>UF.LargeImage</summary>
 	[PublishedModel("ufLargeImage")]
-	public partial class UfLargeImage : PublishedElementModel, IUfImage
+	public partial class UfLargeImage : PublishedElementModel, IUfImage, IUfImageBorder
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -50,5 +50,12 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
 		[ImplementPropertyType("image")]
 		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image => global::Umbraco.Web.PublishedModels.UfImage.GetImage(this);
+
+		///<summary>
+		/// Image Border Size
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		[ImplementPropertyType("imageBorderSize")]
+		public string ImageBorderSize => global::Umbraco.Web.PublishedModels.UfImageBorder.GetImageBorderSize(this);
 	}
 }

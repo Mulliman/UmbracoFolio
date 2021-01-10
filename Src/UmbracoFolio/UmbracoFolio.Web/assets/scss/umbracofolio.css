@@ -6058,8 +6058,8 @@ ul.uk-nav-sub {
 
 /* 5 */
 .uk-lightbox-items > * > * {
-  max-width: 100vw;
-  max-height: 100vh; }
+  max-width: 90vw;
+  max-height: 90vh; }
 
 /* 6 */
 .uk-lightbox-items > :focus {
@@ -6076,7 +6076,7 @@ ul.uk-nav-sub {
  ========================================================================== */
 .uk-lightbox-toolbar {
   padding: 10px 10px;
-  background: rgba(0, 0, 0, 0.3);
+  background: none;
   color: rgba(255, 255, 255, 0.7); }
 
 .uk-lightbox-toolbar > * {
@@ -6103,7 +6103,7 @@ ul.uk-nav-sub {
   box-sizing: border-box;
   width: 50px;
   height: 50px;
-  background: rgba(0, 0, 0, 0.3);
+  background: none;
   color: rgba(255, 255, 255, 0.7);
   /* 1 */
   display: inline-flex;
@@ -9445,10 +9445,13 @@ iframe.uk-cover {
 .uf-text-shadow {
   text-shadow: 0 0 10px black; }
 
+.uf-bordered-none {
+  border: none; }
+
 .uf-bordered-thick {
   border: 10px solid white; }
 
-.uf-bordered {
+.uf-bordered, .uf-bordered-normal {
   border: 5px solid white; }
 
 .uf-bordered-thin {

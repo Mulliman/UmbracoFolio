@@ -1,0 +1,66 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = Model.Content as UfGallery;
+    var settings = Model.Settings as UfRowSettings;
+
+    var masonry = content.IsMasonry;
+    var lightboxAttribute = content.OpenImagesInLightbox ? "uk-lightbox" : "";
+
+    var gridClass = $"uk-child-width-1-{content.AmountOfColumns}@m";
+    var tabletGridClass = $"uk-child-width-1-{content.AmountOfColumnsOnTablet}@s";
+
+    var sectionClass = string.IsNullOrEmpty(settings?.RowColourTheme) ? null : "uk-section-" + settings?.RowColourTheme.ToLower();
+    var imageBorderClass = string.IsNullOrEmpty(content?.ImageBorderSize) ? null : "uf-bordered-" + content?.ImageBorderSize.ToLower();
+}
+
+@if (content?.Images?.Any() != true)
+{
+    return;
+}
+
+<div class="uk-section @sectionClass">
+    <div class="uk-container">
+        <div class="@gridClass @tabletGridClass uk-grid-column-small uk-grid-row-small"
+             uk-grid="masonry: @content.IsMasonry" @Html.Raw(lightboxAttribute)>
+
+            @RenderImages(content.Images, imageBorderClass, content.OpenImagesInLightbox)
+        </div>
+    </div>
+</div>
+
+@helper RenderImages(IEnumerable<IPublishedContent> imagesAndFolders, string imageBorderClass, bool enableLightbox)
+{
+    if (imagesAndFolders?.Any() != true)
+    {
+        return;
+    }
+
+    foreach (var imageOrFolder in imagesAndFolders)
+    {
+        if (imageOrFolder.ContentType.Alias == Folder.ModelTypeAlias)
+        {
+            @RenderImages(imageOrFolder.Descendants(), imageBorderClass, enableLightbox);
+        }
+        else if (imageOrFolder.ContentType.Alias == Image.ModelTypeAlias)
+        {
+            var image = imageOrFolder;
+
+            <div>
+                @if (enableLightbox)
+                {
+                    <a href="@(enableLightbox ? image.Url() : "")" class="uk-card uk-card-default uk-flex uk-flex-center uk-flex-middle">
+                        <img src="@image.Url()" alt="@image.Name" class="uf-image-full-width @imageBorderClass">
+                    </a>
+                }
+                else
+                {
+                    <div class="uk-card uk-card-default uk-flex uk-flex-center uk-flex-middle">
+                        <img src="@image.Url()" alt="@image.Name" class="uf-image-full-width @imageBorderClass">
+                    </div>
+                }
+
+            </div>
+        }
+    }
+}

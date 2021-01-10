@@ -1,6 +1,12 @@
 ﻿// 1. Your custom variables and variable overwrites.
 $global-link-color: #DA7D02;
 
+
+$lightbox-item-max-width: 90vw !default;
+$lightbox-item-max-height: 90vh !default;
+
+$lightbox-toolbar-background: none;
+
 // 2. Import default variables and available mixins.
 @import "../../node_modules/uikit/src/scss/variables-theme.scss";
 @import "../../node_modules/uikit/src/scss/mixins-theme.scss";
