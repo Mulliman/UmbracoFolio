@@ -1,6 +1,8 @@
 ﻿@using Umbraco.Web;
 @using Umbraco.Web.Models;
 @using Umbraco.Core.Models.PublishedContent;
+@using System.Web.Mvc
+@using System.Web.Mvc.Html
 
 @helper RenderNavListItem(Link link, string currentPagePath, string classes)
 {
@@ -9,6 +11,14 @@
                         : "";
 
     <li class="@activeClass @classes"><a href="@link.Url">@link.Name</a></li>
+}
+
+@helper RenderBlockComponent(System.Web.Mvc.HtmlHelper html, Umbraco.Core.Models.Blocks.BlockListItem block, string classes = "")
+{
+    if (block?.ContentUdi == null) { return; }
+    var data = block.Content;
+
+    @html.Partial("BlockList/Components/" + data.ContentType.Alias, block, new ViewDataDictionary { { "classes", classes } })
 }
 
 @functions{

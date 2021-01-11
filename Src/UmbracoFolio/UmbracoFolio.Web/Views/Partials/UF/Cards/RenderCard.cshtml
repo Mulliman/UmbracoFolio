@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<IPublishedElement>
+
+@if (Model == null)
+{
+    return;
+}
+
+@if (Model.ContentType.Alias == UfCardsSimpleText.ModelTypeAlias)
+{
+    @Html.Partial("~/Views/Partials/UF/Cards/_SimpleText.cshtml", Model as UfCardsSimpleText, ViewData);
+}
+else if (Model.ContentType.Alias == UfCardsSimpleImage.ModelTypeAlias)
+{
+    @Html.Partial("~/Views/Partials/UF/Cards/_SimpleImage.cshtml", Model as UfCardsSimpleImage, ViewData);
+}
+else if (Model.ContentType.Alias == UfCardsFull.ModelTypeAlias)
+{
+    @Html.Partial("~/Views/Partials/UF/Cards/_Full.cshtml", Model as UfCardsFull, ViewData);
+}

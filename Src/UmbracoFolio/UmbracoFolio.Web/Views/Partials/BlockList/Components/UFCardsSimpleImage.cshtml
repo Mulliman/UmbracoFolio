@@ -1,0 +1,7 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = Model.Content as UfCardsSimpleImage;
+}
+
+@Html.Partial("~/Views/Partials/UF/Cards/_SimpleImage.cshtml", content, ViewData)

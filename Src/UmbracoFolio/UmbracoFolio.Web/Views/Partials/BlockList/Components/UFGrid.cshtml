@@ -1,0 +1,24 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = Model.Content as UfGrid;
+    var settings = Model.Settings as UfRowSettings;
+
+    var gridClass = $"uk-child-width-1-{content.AmountOfColumns}@m";
+    var tabletGridClass = $"uk-child-width-1-{content.AmountOfColumnsOnTablet}@s";
+
+    var sectionClass = string.IsNullOrEmpty(settings?.RowColourTheme) ? null : "uk-section-" + settings?.RowColourTheme.ToLower();
+    sectionClass += string.IsNullOrEmpty(settings?.Spacing) ? null : " uk-section-" + settings?.Spacing.ToLower();
+}
+
+<div class="uk-section @sectionClass">
+    <div class="uk-container">
+
+        <div class="uk-grid-small @gridClass @tabletGridClass uk-flex-center uk-text-center" uk-height-match="target: > div > .uk-card" uk-grid>
+            @foreach (var block in content.InnerContent)
+            {
+                @UF.RenderBlockComponent(Html, block)
+            }
+        </div>
+    </div>
+</div>

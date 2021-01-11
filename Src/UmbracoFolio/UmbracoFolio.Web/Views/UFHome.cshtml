@@ -10,9 +10,7 @@
 <div class="umb-block-list">
     @foreach (var block in Model.Content)
     {
-        if (block?.ContentUdi == null) { continue; }
-        var data = block.Content;
-        @Html.Partial("BlockList/Components/" + data.ContentType.Alias, block)        
+        @UF.RenderBlockComponent(Html, block)  
     }
 </div>
 

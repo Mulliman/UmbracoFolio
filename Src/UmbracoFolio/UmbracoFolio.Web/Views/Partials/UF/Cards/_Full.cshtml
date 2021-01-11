@@ -1,0 +1,37 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Web.PublishedModels.UfCardsFull>
+
+@if (Model == null)
+{
+    return;
+}
+
+<div>
+    <div class="uk-card uk-card-default">
+        @if (Model.Link?.Name != null)
+        {
+            <a href="@Model.Link.Url" target="@Model.Link.Target" class="uk-card-media-top">
+                <img src="@Model.Image.Url()" alt="">
+            </a>
+        }
+        else
+        {
+            <div class="uk-card-media-top">
+                <img src="@Model.Image.Url()" alt="">
+            </div>
+        }
+
+        <div class="uk-card-body">
+            @if (!string.IsNullOrEmpty(Model.Title))
+            {
+                <h3 class="uk-card-title">@Model.Title</h3>
+            }
+
+            @Html.Raw(Model.RichText)
+
+            @if (Model.Link?.Name != null)
+            {
+                <a href="@Model.Link.Url" target="@Model.Link.Target" class="uk-button uk-button-default">@Model.Link.Name</a>
+            }
+        </div>
+    </div>
+</div>
