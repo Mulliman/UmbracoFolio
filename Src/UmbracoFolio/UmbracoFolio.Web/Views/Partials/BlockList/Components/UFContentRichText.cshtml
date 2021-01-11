@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = Model.Content as UfContentRichText;
+}
+
+<div class="uk-article">
+
+    @Html.Raw(content.RichText)
+
+</div>

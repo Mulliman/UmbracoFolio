@@ -1,0 +1,68 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = Model.Content as UfPageContent;
+    //var settings = Model.Settings as UfRowSettings;
+
+    //var sectionClass = string.IsNullOrEmpty(settings?.RowColourTheme) ? null : "uk-section-" + settings?.RowColourTheme.ToLower();
+    //sectionClass += string.IsNullOrEmpty(settings?.Spacing) ? null : " uk-section-" + settings?.Spacing.ToLower();
+}
+
+<div class="uk-section">
+    <div class="uk-container">
+        @if (content.PageFormat == "Large Left Column")
+        {
+            <div uk-grid>
+                <div class="uk-width-expand@s">
+                    @foreach (var block in content.MainContent)
+                    {
+                        @UF.RenderBlockComponent(Html, block)
+                    }
+                </div>
+                <aside class="uk-width-1-3@s">
+                    @foreach (var block in content.AsideContent)
+                    {
+                        @UF.RenderBlockComponent(Html, block)
+                    }
+                </aside>
+            </div>
+        }
+        else if (content.PageFormat == "Large Right Column")
+        {
+            <div uk-grid>
+                <aside class="uk-width-1-3@s">
+                    @foreach (var block in content.AsideContent)
+                    {
+                        @UF.RenderBlockComponent(Html, block)
+                    }
+                </aside>
+                <div class="uk-width-expand@s">
+                    @foreach (var block in content.MainContent)
+                    {
+                        @UF.RenderBlockComponent(Html, block)
+                    }
+                </div>
+            </div>
+        }
+        else
+        {
+            <div uk-grid class="uk-flex-center">
+                <div class="uk-width-2-3@s">
+                    @foreach (var block in content.MainContent)
+                    {
+                        @UF.RenderBlockComponent(Html, block)
+                    }
+                </div>
+            </div>
+
+            <aside uk-grid class="uk-flex-center">
+                <div class="uk-width-2-3@s">
+                    @foreach (var block in content.AsideContent)
+                    {
+                        @UF.RenderBlockComponent(Html, block)
+                    }
+                </div>
+            </aside>
+        }
+    </div>
+</div>

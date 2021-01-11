@@ -335,12 +335,14 @@
     <Compile Include="App_Data\Models\Folder.generated.cs" />
     <Compile Include="App_Data\Models\Image.generated.cs" />
     <Compile Include="App_Data\Models\Member.generated.cs" />
+    <Compile Include="App_Data\Models\UfAsideContent.generated.cs" />
     <Compile Include="App_Data\Models\UfCardsFull.generated.cs" />
     <Compile Include="App_Data\Models\UfCardsSimpleImage.generated.cs" />
     <Compile Include="App_Data\Models\UfCardsSimpleText.generated.cs" />
     <Compile Include="App_Data\Models\UfColumns.generated.cs" />
     <Compile Include="App_Data\Models\UfConfigurationFolder.generated.cs" />
     <Compile Include="App_Data\Models\UfContent.generated.cs" />
+    <Compile Include="App_Data\Models\UfContentRichText.generated.cs" />
     <Compile Include="App_Data\Models\UfFeatureImage.generated.cs" />
     <Compile Include="App_Data\Models\UfGallery.generated.cs" />
     <Compile Include="App_Data\Models\UfGalleryDisplaySettings.generated.cs" />
@@ -353,7 +355,9 @@
     <Compile Include="App_Data\Models\UfInnerContent.generated.cs" />
     <Compile Include="App_Data\Models\UfLargeImage.generated.cs" />
     <Compile Include="App_Data\Models\UfLink.generated.cs" />
+    <Compile Include="App_Data\Models\UfMainContent.generated.cs" />
     <Compile Include="App_Data\Models\UfPage.generated.cs" />
+    <Compile Include="App_Data\Models\UfPageContent.generated.cs" />
     <Compile Include="App_Data\Models\UfRichText.generated.cs" />
     <Compile Include="App_Data\Models\UFrowSettings.generated.cs" />
     <Compile Include="App_Data\Models\UfSiteConfiguration.generated.cs" />
@@ -389,6 +393,7 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="package-lock.json" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
@@ -417,6 +422,8 @@
     <Content Include="Views\Partials\BlockList\Components\UFCardsFull.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UFCardsSimpleText.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UFCardsSimpleImage.cshtml" />
+    <Content Include="Views\Partials\BlockList\Components\UFContentRichText.cshtml" />
+    <Content Include="Views\Partials\BlockList\Components\UFPageContent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
