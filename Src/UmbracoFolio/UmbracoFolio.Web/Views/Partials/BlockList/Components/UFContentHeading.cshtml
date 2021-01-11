@@ -1,0 +1,30 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = Model.Content as UfContentHeading;
+}
+
+@if (content.HeadingLevel == "h1")
+{
+    <h1>@content.Title</h1>
+}
+else if (content.HeadingLevel == "h2")
+{
+    <h2>@content.Title</h2>
+}
+else if (content.HeadingLevel == "h3")
+{
+    <h3>@content.Title</h3>
+}
+else if (content.HeadingLevel == "h4")
+{
+    <h4>@content.Title</h4>
+}
+else if (content.HeadingLevel == "h5")
+{
+    <h5>@content.Title</h5>
+}
+else if (content.HeadingLevel == "h2")
+{
+    <h6>@content.Title</h6>
+}

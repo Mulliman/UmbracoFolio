@@ -342,11 +342,13 @@
     <Compile Include="App_Data\Models\UfColumns.generated.cs" />
     <Compile Include="App_Data\Models\UfConfigurationFolder.generated.cs" />
     <Compile Include="App_Data\Models\UfContent.generated.cs" />
+    <Compile Include="App_Data\Models\UfContentHeading.generated.cs" />
     <Compile Include="App_Data\Models\UfContentRichText.generated.cs" />
     <Compile Include="App_Data\Models\UfFeatureImage.generated.cs" />
     <Compile Include="App_Data\Models\UfGallery.generated.cs" />
     <Compile Include="App_Data\Models\UfGalleryDisplaySettings.generated.cs" />
     <Compile Include="App_Data\Models\UfGrid.generated.cs" />
+    <Compile Include="App_Data\Models\UfHeadingLevel.generated.cs" />
     <Compile Include="App_Data\Models\UfHeroFeatureImage.generated.cs" />
     <Compile Include="App_Data\Models\UfHome.generated.cs" />
     <Compile Include="App_Data\Models\UfImage.generated.cs" />
@@ -424,6 +426,7 @@
     <Content Include="Views\Partials\BlockList\Components\UFCardsSimpleImage.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UFContentRichText.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UFPageContent.cshtml" />
+    <Content Include="Views\Partials\BlockList\Components\UFContentHeading.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
