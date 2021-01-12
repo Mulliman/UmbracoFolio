@@ -2,13 +2,13 @@
 
 @{
     var content = Model.Content as UfPageContent;
-    //var settings = Model.Settings as UfRowSettings;
+    var settings = Model.Settings as UfRowSettings;
 
-    //var sectionClass = string.IsNullOrEmpty(settings?.RowColourTheme) ? null : "uk-section-" + settings?.RowColourTheme.ToLower();
-    //sectionClass += string.IsNullOrEmpty(settings?.Spacing) ? null : " uk-section-" + settings?.Spacing.ToLower();
+    var sectionClass = string.IsNullOrEmpty(settings?.RowColourTheme) ? null : "uk-section-" + settings?.RowColourTheme.ToLower();
+    sectionClass += string.IsNullOrEmpty(settings?.Spacing) ? null : " uk-section-" + settings?.Spacing.ToLower();
 }
 
-<div class="uk-section">
+<div class="uk-section @sectionClass">
     <div class="uk-container">
         @if (content.PageFormat == "Large Left Column")
         {
