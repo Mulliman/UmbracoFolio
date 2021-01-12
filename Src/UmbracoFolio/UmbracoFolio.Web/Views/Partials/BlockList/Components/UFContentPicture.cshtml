@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = Model.Content as UfContentPicture;
+    var imageBorderClass = string.IsNullOrEmpty(content?.ImageBorderSize) ? null : "uf-bordered-" + content?.ImageBorderSize.ToLower();
+}
+
+@if (content == null)
+{
+    return;
+}
+
+<div>
+    <div class="uk-card uk-margin">
+        <div>
+            <img src="@content.Image.Url()" alt="@content.Image.Name" class="uf-image-full-width @imageBorderClass">
+        </div>
+    </div>
+</div>

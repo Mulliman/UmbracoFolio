@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = Model.Content as UfContentCodeSnippet;
+}
+
+<div class="uk-margin">
+
+    @if (content.HtmlEncode)
+    {
+        <pre><code>@content.Code</code></pre>
+    }
+    else
+    {
+        <pre><code>@Html.Raw(content.Code)</code></pre>
+    }
+
+
+</div>

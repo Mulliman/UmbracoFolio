@@ -342,7 +342,10 @@
     <Compile Include="App_Data\Models\UfColumns.generated.cs" />
     <Compile Include="App_Data\Models\UfConfigurationFolder.generated.cs" />
     <Compile Include="App_Data\Models\UfContent.generated.cs" />
+    <Compile Include="App_Data\Models\UfContentCodeSnippet.generated.cs" />
     <Compile Include="App_Data\Models\UfContentHeading.generated.cs" />
+    <Compile Include="App_Data\Models\UFcontentPicture.generated.cs" />
+    <Compile Include="App_Data\Models\UFcontentQuote.generated.cs" />
     <Compile Include="App_Data\Models\UfContentRichText.generated.cs" />
     <Compile Include="App_Data\Models\UfFeatureImage.generated.cs" />
     <Compile Include="App_Data\Models\UfGallery.generated.cs" />
@@ -391,6 +394,7 @@
     <Content Include="assets\scss\components\cards.scss" />
     <Content Include="assets\scss\components\utilities.scss" />
     <Content Include="assets\scss\components\images.scss" />
+    <Content Include="assets\scss\components\content.scss" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -427,6 +431,9 @@
     <Content Include="Views\Partials\BlockList\Components\UFContentRichText.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UFPageContent.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UFContentHeading.cshtml" />
+    <Content Include="Views\Partials\BlockList\Components\UFContentPicture.cshtml" />
+    <Content Include="Views\Partials\BlockList\Components\UFContentCodeSnippet.cshtml" />
+    <Content Include="Views\Partials\BlockList\Components\UfContentQuote.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

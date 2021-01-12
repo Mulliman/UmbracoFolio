@@ -1,0 +1,28 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = Model.Content as UfContentQuote;
+}
+
+@if (content == null)
+{
+    return;
+}
+
+<div class="uk-margin uk-clearfix uf-quote">
+    <span uk-icon="quote-right" class="uf-flip"></span>
+    <blockquote cite="@(content.AttributionLink?.Url)">
+        <div class="uk-margin-small-bottom">@Html.Raw(content.QuoteText)</div>
+
+        @if (!string.IsNullOrEmpty(content.AttributionText) || !string.IsNullOrEmpty(content.AttributionLink?.Name))
+        {
+            <footer>
+                @content.AttributionText <cite>
+                    @if (!string.IsNullOrEmpty(content.AttributionLink?.Name))
+                    {<a href="@content.AttributionLink.Url" target="@content.AttributionLink.Target">@content.AttributionLink.Name</a>}
+                </cite>
+            </footer>
+        }
+    </blockquote>
+    <span uk-icon="quote-right" class="uf-quote__end-quote"></span>
+</div>

@@ -9465,9 +9465,19 @@ iframe.uk-cover {
   .uk-visibility-m {
     visibility: hidden; } }
 
+.uf-flip {
+  transform: rotate(180deg); }
+
 .uf-image-full-width {
   max-width: 100%;
   width: 100%; }
+
+.uf-quote blockquote {
+  margin: 0 50px;
+  text-align: center; }
+
+.uf-quote .uf-quote__end-quote {
+  float: right; }
 
 .uk-section-none {
   padding-top: 0;
