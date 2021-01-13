@@ -1,0 +1,153 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = Model.Content as UfFancyNextPrevious;
+    var settings = Model.Settings as UfRowSettings;
+
+    var sectionClass = string.IsNullOrEmpty(settings?.RowColourTheme) ? null : "uk-section-" + settings?.RowColourTheme.ToLower();
+    sectionClass += string.IsNullOrEmpty(settings?.Spacing) ? null : " uk-section-" + settings?.Spacing.ToLower();
+
+    UfArticle next = null;
+    UfArticle previous = null;
+
+    if (content?.Value("nextPageOverride") != null)
+    {
+        next = content?.NextPageOverride as UfArticle;
+    }
+
+    if (content?.Value("previousPageOverride") != null)
+    {
+        previous = content?.PreviousPageOverride as UfArticle;
+    }
+
+    if (next == null || previous == null)
+    {
+        var pages = UF.GetNextAndPreviousPages(Umbraco.AssignedContentItem);
+
+        previous = previous ?? pages.Previous as UfArticle;
+        next = next ?? pages.Next as UfArticle;
+    }
+}
+
+<div class="uk-section @sectionClass">
+    <div class="uk-container">
+        <div class="uk-child-width-1-3 uk-grid-small uk-grid-match uk-visible@m uk-margin-remove-top" uk-grid>
+            <div>
+                @RenderPreviousCard(content, previous)
+            </div>
+            <div>
+                @RenderCta(content)
+            </div>
+            <div>
+                @RenderNextCard(content, next)
+            </div>
+        </div>
+
+        <div class="uk-child-width-1-2 uk-grid-small uk-grid-match uk-hidden@m uk-margin-remove-top" uk-grid>
+            <div class="uk-width-1">
+                @RenderCta(content)
+            </div>
+            <div class="uk-visible@s">
+                @RenderPreviousCard(content, previous)
+            </div>
+            <div class="uk-visible@s">
+                @RenderNextCard(content, next)
+            </div>
+        </div>
+
+        <ul class="uk-pagination uk-hidden@s">
+            @if (previous != null)
+            {
+                <li><a href="@previous.Url()" class="uf-bordered-thin uf-bordered-dark dark-colour"><span uk-pagination-previous></span> @GetMobileNextPreviousLabel(content, previous, content.PreviousLinkText)</a></li>
+            }
+
+            @if (next != null)
+            {
+                <li class="uk-margin-auto-left"><a href="@next.Url()" class="uf-bordered-thin uf-bordered-dark dark-colour">@GetMobileNextPreviousLabel(content, next, content.NextLinkText) <span uk-pagination-next></span></a></li>
+            }
+        </ul>
+    </div>
+</div>
+
+@helper RenderCta(UfFancyNextPrevious content)
+{
+    <div class="uk-card uk-card-default uk-card-body uk-text-center" style="border: 10px solid rgb(34, 34, 34) ;">
+        <h2 class="uk-card-title uf-cursive" style="font-size: 2em; text-align: center;">@content.Title</h2>
+        @content.Summary
+
+        @if (content?.Link.Name != null)
+        {
+            <a href="@content.Link.Url" target="@content.Link.Target" class="uk-button uk-button-secondary">@content.Link.Name</a>
+        }
+    </div>
+}
+
+@helper RenderPreviousCard(UfFancyNextPrevious content, UfArticle article)
+{
+    if (article != null)
+    {
+        var imageUrl = article.Image?.Url();
+
+        <div class="u-non-blurred uk-flex uk-flex-middle" style="background-image: url('@imageUrl'); background-size: cover;">
+            @*<img src="@imageUrl" alt="" class="uf-cover">*@
+            <a href="@article.Url()" class="uk-light uk-flex-center uk-text-center uk-link-reset uf-bordered uf-background-dark-translucent uf-compact-text uf-margin uf-padding uf-full-width" style="">
+                <h4 class="uk-heading-line uk-text-center thin-heading-font uk-margin-remove">@UF.GetArticleDate(article)</h4>
+                <h3 class="uk-heading-line uk-text-center thin-heading-font uk-margin-remove-top">@article.Title</h3>
+                <span class="uk-button uk-button-text uk-margin-top"><span uk-icon="arrow-left"></span> @content.PreviousLinkText</span>
+            </a>
+        </div>
+    }
+}
+
+@helper RenderNextCard(UfFancyNextPrevious content, UfArticle article)
+{
+    if (article != null)
+    {
+        var imageUrl = article.Image?.Url();
+
+        <div class="u-non-blurred uk-flex uk-flex-middle" style="background-image: url('@imageUrl'); background-size: cover;">
+            @*<img src="@imageUrl" alt="" class="uf-cover">*@
+            <a href="@article.Url()" class="uk-light uk-flex-center uk-text-center uk-link-reset uf-bordered uf-background-dark-translucent uf-compact-text uf-margin uf-padding uf-full-width" style="">
+                <h4 class="uk-heading-line uk-text-center thin-heading-font uk-margin-remove">@UF.GetArticleDate(article)</h4>
+                <h3 class="uk-heading-line uk-text-center thin-heading-font uk-margin-remove-top">@article.Title</h3>
+                <span class="uk-button uk-button-text uk-margin-top">@content.NextLinkText <span uk-icon="arrow-right"></span></span>
+            </a>
+        </div>
+    }
+}
+
+@helper RenderNextCardOld(UfFancyNextPrevious content, UfArticle article)
+{
+    if (article != null)
+    {
+        var imageUrl = article.Image?.Url();
+
+        <div class="uk-inline u-non-blurred">
+            <img src="@imageUrl" alt="" class="uf-cover">
+            <a href="@article.Url()" class="uk-overlay uk-light uk-position-center uk-text-center uk-link-reset uf-bordered uf-background-dark-translucent uf-compact-text uf-10-pc-gap">
+                <h4 class="uk-heading-line uk-text-center thin-heading-font uk-margin-remove">@UF.GetArticleDate(article)</h4>
+                <h3 class="uk-heading-line uk-text-center thin-heading-font uk-margin-remove-top">@article.Title</h3>
+                <span class="uk-button uk-button-text">@content.NextLinkText <span uk-icon="arrow-right"></span></span>
+            </a>
+        </div>
+    }
+}
+
+@helper GetMobileNextPreviousLabel(UfFancyNextPrevious content, UfArticle article, string customText)
+{
+    switch (content.TextOnlyLinkField)
+    {
+        case "Title":
+            @(article.Title ?? article.Name);
+            return;
+
+        case "Date":
+            @UF.GetArticleDate(article);
+            return;
+
+        case "Default":
+        default:
+            @(customText ?? article.Title ?? article.Name)
+            return;
+    }
+}

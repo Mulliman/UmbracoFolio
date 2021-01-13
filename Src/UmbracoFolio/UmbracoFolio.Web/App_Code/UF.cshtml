@@ -44,4 +44,20 @@
 
         return date.ToString("yyyy-MM-dd");
     }
+
+    public static UmbracoFolio.Web.Models.NextPrevious<IPublishedContent> GetNextAndPreviousPages(IPublishedContent currentPage)
+    {
+        var siblingList = currentPage.SiblingsAndSelf().ToList();
+        var currentIndexInNewsList = siblingList.FindIndex(x => x.Id == currentPage.Id);
+        var totalResults = siblingList.Count();
+
+        var previousItem = siblingList.ElementAtOrDefault(currentIndexInNewsList - 1);
+        var nextItem = siblingList.ElementAtOrDefault(currentIndexInNewsList + 1);
+
+        return new UmbracoFolio.Web.Models.NextPrevious<IPublishedContent>
+        {
+            Next = nextItem,
+            Previous = previousItem
+        };
+    }
 }

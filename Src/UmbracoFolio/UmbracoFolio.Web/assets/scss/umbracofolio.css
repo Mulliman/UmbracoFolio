@@ -9417,6 +9417,11 @@ iframe.uk-cover {
 .uf-background-light-translucent {
   background: rgba(255, 255, 255, 0.85); }
 
+.uf-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; }
+
 .uf-blurred-background-image {
   position: relative; }
 
@@ -9450,16 +9455,34 @@ iframe.uk-cover {
 
 .uf-bordered-thick {
   border: 10px solid white; }
+  .uf-bordered-thick.uf-bordered-dark {
+    border-color: #222; }
 
 .uf-bordered, .uf-bordered-normal {
   border: 5px solid white; }
+  .uf-bordered.uf-bordered-dark, .uf-bordered-normal.uf-bordered-dark {
+    border-color: #222; }
 
 .uf-bordered-thin {
   border: 2px solid white; }
+  .uf-bordered-thin.uf-bordered-dark {
+    border-color: #222; }
 
 .uf-compact-text h1, .uf-compact-text h2, .uf-compact-text h3, .uf-compact-text h4, .uf-compact-text h5, .uf-compact-text h6, .uf-compact-text p {
   margin: 0;
   padding: 0; }
+
+.uf-margin-small {
+  margin: 15px; }
+
+.uf-margin {
+  margin: 30px; }
+
+.uf-padding-small {
+  padding: 15px; }
+
+.uf-padding {
+  padding: 30px; }
 
 @media (max-width: 640px) {
   .uk-visibility-m {
@@ -9467,6 +9490,9 @@ iframe.uk-cover {
 
 .uf-flip {
   transform: rotate(180deg); }
+
+.uf-full-width {
+  width: 100%; }
 
 .uf-image-full-width {
   max-width: 100%;
@@ -9478,6 +9504,9 @@ iframe.uk-cover {
 
 .uf-quote .uf-quote__end-quote {
   float: right; }
+
+.dark-colour {
+  color: #222; }
 
 .uk-section-none {
   padding-top: 0;

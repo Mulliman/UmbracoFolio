@@ -351,6 +351,7 @@
     <Compile Include="App_Data\Models\UFcontentQuote.generated.cs" />
     <Compile Include="App_Data\Models\UfContentRichText.generated.cs" />
     <Compile Include="App_Data\Models\UfDisplayDate.generated.cs" />
+    <Compile Include="App_Data\Models\UfFancyNextPrevious.generated.cs" />
     <Compile Include="App_Data\Models\UfFeatureImage.generated.cs" />
     <Compile Include="App_Data\Models\UfGallery.generated.cs" />
     <Compile Include="App_Data\Models\UfGalleryDisplaySettings.generated.cs" />
@@ -367,6 +368,7 @@
     <Compile Include="App_Data\Models\UfLink.generated.cs" />
     <Compile Include="App_Data\Models\UFlistingSettings.generated.cs" />
     <Compile Include="App_Data\Models\UfMainContent.generated.cs" />
+    <Compile Include="App_Data\Models\UfNextPrevious.generated.cs" />
     <Compile Include="App_Data\Models\UfPage.generated.cs" />
     <Compile Include="App_Data\Models\UfPageContent.generated.cs" />
     <Compile Include="App_Data\Models\UfRichText.generated.cs" />
@@ -377,6 +379,7 @@
     <Compile Include="App_Data\Models\UfTitle.generated.cs" />
     <Compile Include="Helpers\NavigationHelper.cs" />
     <Compile Include="Helpers\SettingsHelper.cs" />
+    <Compile Include="Models\NextPrevious.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -446,6 +449,7 @@
     <Content Include="Views\UFHub.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UFArticleListing.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UFArticleIntro.cshtml" />
+    <Content Include="Views\Partials\BlockList\Components\UFFancyNextPrevious.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
