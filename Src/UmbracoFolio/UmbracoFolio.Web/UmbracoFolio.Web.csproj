@@ -335,6 +335,8 @@
     <Compile Include="App_Data\Models\Folder.generated.cs" />
     <Compile Include="App_Data\Models\Image.generated.cs" />
     <Compile Include="App_Data\Models\Member.generated.cs" />
+    <Compile Include="App_Data\Models\UfArticle.generated.cs" />
+    <Compile Include="App_Data\Models\UfArticleListing.generated.cs" />
     <Compile Include="App_Data\Models\UfAsideContent.generated.cs" />
     <Compile Include="App_Data\Models\UfCardsFull.generated.cs" />
     <Compile Include="App_Data\Models\UfCardsSimpleImage.generated.cs" />
@@ -347,6 +349,7 @@
     <Compile Include="App_Data\Models\UFcontentPicture.generated.cs" />
     <Compile Include="App_Data\Models\UFcontentQuote.generated.cs" />
     <Compile Include="App_Data\Models\UfContentRichText.generated.cs" />
+    <Compile Include="App_Data\Models\UfDisplayDate.generated.cs" />
     <Compile Include="App_Data\Models\UfFeatureImage.generated.cs" />
     <Compile Include="App_Data\Models\UfGallery.generated.cs" />
     <Compile Include="App_Data\Models\UfGalleryDisplaySettings.generated.cs" />
@@ -354,18 +357,22 @@
     <Compile Include="App_Data\Models\UfHeadingLevel.generated.cs" />
     <Compile Include="App_Data\Models\UfHeroFeatureImage.generated.cs" />
     <Compile Include="App_Data\Models\UfHome.generated.cs" />
+    <Compile Include="App_Data\Models\UfHub.generated.cs" />
     <Compile Include="App_Data\Models\UfImage.generated.cs" />
     <Compile Include="App_Data\Models\UfImageBorder.generated.cs" />
     <Compile Include="App_Data\Models\UfImages.generated.cs" />
     <Compile Include="App_Data\Models\UfInnerContent.generated.cs" />
     <Compile Include="App_Data\Models\UfLargeImage.generated.cs" />
     <Compile Include="App_Data\Models\UfLink.generated.cs" />
+    <Compile Include="App_Data\Models\UFlistingSettings.generated.cs" />
     <Compile Include="App_Data\Models\UfMainContent.generated.cs" />
     <Compile Include="App_Data\Models\UfPage.generated.cs" />
     <Compile Include="App_Data\Models\UfPageContent.generated.cs" />
     <Compile Include="App_Data\Models\UfRichText.generated.cs" />
     <Compile Include="App_Data\Models\UFrowSettings.generated.cs" />
     <Compile Include="App_Data\Models\UfSiteConfiguration.generated.cs" />
+    <Compile Include="App_Data\Models\UfSummary.generated.cs" />
+    <Compile Include="App_Data\Models\UfTags.generated.cs" />
     <Compile Include="App_Data\Models\UfTitle.generated.cs" />
     <Compile Include="Helpers\NavigationHelper.cs" />
     <Compile Include="Helpers\SettingsHelper.cs" />
@@ -434,6 +441,9 @@
     <Content Include="Views\Partials\BlockList\Components\UFContentPicture.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UFContentCodeSnippet.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UfContentQuote.cshtml" />
+    <Content Include="Views\UFArticle.cshtml" />
+    <Content Include="Views\UFHub.cshtml" />
+    <Content Include="Views\Partials\BlockList\Components\UFArticleListing.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

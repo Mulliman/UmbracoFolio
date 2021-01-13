@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.UfHub>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "UFBase.cshtml";
+}
+
+@{
+    if (!Model.Content.Any()) { return; }
+}
+
+<div class="umb-block-list">
+    @foreach (var block in Model.Content)
+    {
+        @UF.RenderBlockComponent(Html, block)
+    }
+</div>

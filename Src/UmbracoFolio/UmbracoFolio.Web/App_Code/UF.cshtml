@@ -22,4 +22,13 @@
 }
 
 @functions{
+    public static string FormatDate(DateTime date)
+    {
+        return date.ToString("dd MMM yy");
+    }
+
+    public static string FormatHtmlDate(DateTime date)
+    {
+        return date.ToString("yyyy-MM-dd");
+    }
 }
