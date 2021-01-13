@@ -9411,6 +9411,12 @@ iframe.uk-cover {
   max-width: 80%;
   max-height: 80%; }
 
+.fancy-card {
+  background: #222; }
+  .fancy-card:hover .uf-background-dark-translucent {
+    background: black;
+    box-shadow: 0 0 20px black; }
+
 .uf-background-dark-translucent {
   background: rgba(0, 0, 0, 0.85); }
 
