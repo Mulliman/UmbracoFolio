@@ -12,7 +12,7 @@
 
     var articles = Umbraco.AssignedContentItem.ChildrenOfType(UfArticle.ModelTypeAlias);
 
-    if(articles == null)
+    if (articles == null)
     {
         return;
     }
@@ -20,47 +20,61 @@
 
 <div class="uk-section @sectionClass">
     <div class="uk-container">
-        <div class="uk-grid-small @gridClass @tabletGridClass uk-flex-center uk-text-center" uk-height-match="target: > div > .uk-card" uk-grid>
-            @foreach (var article in articles.Select(a => a as UfArticle).Where(a => a != null))
-            {
-                var articleDate = UF.GetArticleDate(article);
-                var hasDate = !content.DoNotShowDate && !string.IsNullOrEmpty(articleDate);
-
-                <div>
-                    <div class="uk-card uk-card-default uk-card-hover uk-transition-toggle">
-
-                        @if (!content.DoNotShowImages)
-                        {
-                            <div class="uk-card-media-top uk-overflow-hidden">
-                                <img class="uk-transition-scale-up uk-transition-opaque" src="@article.Image.Url()" alt="@article.Image">
-                            </div>
-                        }
-
-                        <div class="uk-card-body">
-                            @if (hasDate)
-                            {
-                                <p class="uk-text-meta uk-margin-remove-bottom"><time datetime="@UF.FormatHtmlDate(article.DisplayDate)">@articleDate</time></p>
-                            }
-
-                            @if (!string.IsNullOrEmpty(article.Title))
-                            {
-                                <h3 class="uk-card-title @(hasDate ? "uk-margin-remove-top" : "")">@article.Title</h3>
-                            }
-
-                            @if (!content.DoNotShowSummary)
-                            {
-                                @Html.Raw(article.Summary)
-                            }
-
-                            @if (!string.IsNullOrEmpty(content.ButtonLinkText))
-                            {
-                                <a href="@article.Url()" class="uk-button uk-button-default">@content.ButtonLinkText</a>
-                            }
-                        </div>
-                        <a href="@article.Url()" title="" class="uk-position-cover"></a>
-                    </div>
-                </div>
-            }
-        </div>
+        @if (content.IsMasonry)
+        {
+            <div class="uk-grid-small @gridClass @tabletGridClass uk-text-center" uk-grid="masonry: true">
+                @RenderArticles(content, articles)
+            </div>
+        }
+        else
+        {
+            <div class="uk-grid-small @gridClass @tabletGridClass uk-flex-center uk-text-center" uk-height-match="target: > div > .uk-card" uk-grid>
+                @RenderArticles(content, articles)
+            </div>
+        }
     </div>
 </div>
+
+@helper RenderArticles(UfArticleListing content, IEnumerable<IPublishedContent> articles)
+{
+    foreach (var article in articles.Select(a => a as UfArticle).Where(a => a != null))
+    {
+        var articleDate = UF.GetArticleDate(article);
+        var hasDate = !content.DoNotShowDate && !string.IsNullOrEmpty(articleDate);
+
+        <div>
+            <div class="uk-card uk-card-default uk-card-hover uk-transition-toggle">
+
+                @if (!content.DoNotShowImages && article.Image != null)
+                {
+                    <div class="uk-card-media-top uk-overflow-hidden">
+                        <img class="uk-transition-scale-up uk-transition-opaque" src="@article.Image.Url()" alt="@article.Image.Name">
+                    </div>
+                }
+
+                <div class="uk-card-body">
+                    @if (hasDate)
+                    {
+                        <p class="uk-text-meta uk-margin-remove-bottom"><time datetime="@UF.FormatHtmlDate(article.DisplayDate)">@articleDate</time></p>
+                    }
+
+                    @if (!string.IsNullOrEmpty(article.Title))
+                    {
+                        <h3 class="uk-card-title @(hasDate ? "uk-margin-remove-top" : "")">@article.Title</h3>
+                    }
+
+                    @if (!content.DoNotShowSummary)
+                    {
+                        @Html.Raw(article.Summary)
+                    }
+
+                    @if (!string.IsNullOrEmpty(content.ButtonLinkText))
+                    {
+                        <a href="@article.Url()" class="uk-button uk-button-default">@content.ButtonLinkText</a>
+                    }
+                </div>
+                <a href="@article.Url()" title="" class="uk-position-cover"></a>
+            </div>
+        </div>
+    }
+}

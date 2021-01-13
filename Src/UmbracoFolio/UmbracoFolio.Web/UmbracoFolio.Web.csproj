@@ -368,6 +368,7 @@
     <Compile Include="App_Data\Models\UfLink.generated.cs" />
     <Compile Include="App_Data\Models\UFlistingSettings.generated.cs" />
     <Compile Include="App_Data\Models\UfMainContent.generated.cs" />
+    <Compile Include="App_Data\Models\UFmasonry.generated.cs" />
     <Compile Include="App_Data\Models\UfNextPrevious.generated.cs" />
     <Compile Include="App_Data\Models\UfPage.generated.cs" />
     <Compile Include="App_Data\Models\UfPageContent.generated.cs" />

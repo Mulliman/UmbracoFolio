@@ -21,7 +21,7 @@ namespace Umbraco.Web.PublishedModels
 {
 	/// <summary>UF.ArticleListing</summary>
 	[PublishedModel("ufArticleListing")]
-	public partial class UfArticleListing : PublishedElementModel, IUfColumns, IUFlistingSettings
+	public partial class UfArticleListing : PublishedElementModel, IUfColumns, IUFlistingSettings, IUfMasonry
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -85,5 +85,12 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
 		[ImplementPropertyType("doNotShowSummary")]
 		public bool DoNotShowSummary => global::Umbraco.Web.PublishedModels.UFlistingSettings.GetDoNotShowSummary(this);
+
+		///<summary>
+		/// Is Masonry
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		[ImplementPropertyType("isMasonry")]
+		public bool IsMasonry => global::Umbraco.Web.PublishedModels.UfMasonry.GetIsMasonry(this);
 	}
 }
