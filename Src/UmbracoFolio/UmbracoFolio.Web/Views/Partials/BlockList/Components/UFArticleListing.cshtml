@@ -23,7 +23,8 @@
         <div class="uk-grid-small @gridClass @tabletGridClass uk-flex-center uk-text-center" uk-height-match="target: > div > .uk-card" uk-grid>
             @foreach (var article in articles.Select(a => a as UfArticle).Where(a => a != null))
             {
-                var hasDate = !content.DoNotShowDate && article.DisplayDate != DateTime.MinValue;
+                var articleDate = UF.GetArticleDate(article);
+                var hasDate = !content.DoNotShowDate && !string.IsNullOrEmpty(articleDate);
 
                 <div>
                     <div class="uk-card uk-card-default uk-card-hover uk-transition-toggle">
@@ -38,7 +39,7 @@
                         <div class="uk-card-body">
                             @if (hasDate)
                             {
-                                <p class="uk-text-meta uk-margin-remove-bottom"><time datetime="@UF.FormatHtmlDate(article.DisplayDate)">@UF.FormatDate(article.DisplayDate)</time></p>
+                                <p class="uk-text-meta uk-margin-remove-bottom"><time datetime="@UF.FormatHtmlDate(article.DisplayDate)">@articleDate</time></p>
                             }
 
                             @if (!string.IsNullOrEmpty(article.Title))

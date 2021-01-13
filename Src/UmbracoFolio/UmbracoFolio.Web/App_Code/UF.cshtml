@@ -22,13 +22,26 @@
 }
 
 @functions{
+    public static string GetArticleDate(Umbraco.Web.PublishedModels.IUfDisplayDate articleDate)
+    {
+        if (articleDate == null) return null;
+
+        return !string.IsNullOrEmpty(articleDate.DisplayDateOverride)
+            ? articleDate.DisplayDateOverride
+            : FormatDate(articleDate.DisplayDate);
+    }
+
     public static string FormatDate(DateTime date)
     {
+        if (date == DateTime.MinValue) return null;
+
         return date.ToString("dd MMM yy");
     }
 
     public static string FormatHtmlDate(DateTime date)
     {
+        if (date == DateTime.MinValue) return null;
+
         return date.ToString("yyyy-MM-dd");
     }
 }

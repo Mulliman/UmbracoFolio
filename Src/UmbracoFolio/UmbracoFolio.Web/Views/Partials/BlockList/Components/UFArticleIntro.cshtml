@@ -1,0 +1,44 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = Model.Content as UfArticleIntro;
+    var settings = Model.Settings as UfRowSettings;
+
+    var sectionClass = string.IsNullOrEmpty(settings?.RowColourTheme) ? null : "uk-section-" + settings?.RowColourTheme.ToLower();
+    sectionClass += string.IsNullOrEmpty(settings?.Spacing) ? null : " uk-section-" + settings?.Spacing.ToLower();
+
+    var article = Umbraco.AssignedContentItem as UfArticle;
+
+    if (article == null)
+    {
+        return;
+    }
+
+    var articleDate = UF.GetArticleDate(article);
+}
+
+<div class="uk-section @sectionClass">
+    <div class="uk-container">
+
+        <div uk-grid class="uk-flex-center">
+            <div class="uk-width-2-3@s uk-text-center">
+                @if (!string.IsNullOrEmpty(articleDate))
+                {
+                    <p class="uk-text-meta uk-margin-remove-bottom"><time datetime="@UF.FormatHtmlDate(article.DisplayDate)">@articleDate</time></p>
+                    <h1 class="uk-margin-remove-top">@article.Title</h1>
+                }
+                else
+                {
+                    <h1>@article.Title</h1>
+                }
+
+                @if (article.Summary != null)
+                {
+                    <div class="uk-text-lead uk-margin-remove-last-child">
+                        @article.Summary
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

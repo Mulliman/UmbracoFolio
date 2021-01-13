@@ -336,6 +336,7 @@
     <Compile Include="App_Data\Models\Image.generated.cs" />
     <Compile Include="App_Data\Models\Member.generated.cs" />
     <Compile Include="App_Data\Models\UfArticle.generated.cs" />
+    <Compile Include="App_Data\Models\UfArticleIntro.generated.cs" />
     <Compile Include="App_Data\Models\UfArticleListing.generated.cs" />
     <Compile Include="App_Data\Models\UfAsideContent.generated.cs" />
     <Compile Include="App_Data\Models\UfCardsFull.generated.cs" />
@@ -444,6 +445,7 @@
     <Content Include="Views\UFArticle.cshtml" />
     <Content Include="Views\UFHub.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UFArticleListing.cshtml" />
+    <Content Include="Views\Partials\BlockList\Components\UFArticleIntro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

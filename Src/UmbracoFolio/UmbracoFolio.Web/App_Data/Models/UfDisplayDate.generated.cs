@@ -26,6 +26,10 @@ namespace Umbraco.Web.PublishedModels
 		/// <summary>Display Date</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
 		global::System.DateTime DisplayDate { get; }
+
+		/// <summary>Display Date Override</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		string DisplayDateOverride { get; }
 	}
 
 	/// <summary>UF.DisplayDate</summary>
@@ -63,5 +67,16 @@ namespace Umbraco.Web.PublishedModels
 		/// <summary>Static getter for Display Date</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
 		public static global::System.DateTime GetDisplayDate(IUfDisplayDate that) => that.Value<global::System.DateTime>("displayDate");
+
+		///<summary>
+		/// Display Date Override
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		[ImplementPropertyType("displayDateOverride")]
+		public string DisplayDateOverride => GetDisplayDateOverride(this);
+
+		/// <summary>Static getter for Display Date Override</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		public static string GetDisplayDateOverride(IUfDisplayDate that) => that.Value<string>("displayDateOverride");
 	}
 }
