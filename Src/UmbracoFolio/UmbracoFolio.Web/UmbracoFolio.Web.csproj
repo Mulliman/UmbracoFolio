@@ -453,6 +453,7 @@
     <Content Include="Views\Partials\BlockList\Components\UFArticleIntro.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UFFancyNextPrevious.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UFArticleListingFancy.cshtml" />
+    <Content Include="Views\Partials\UF\_Meta.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,51 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@if (Model == null)
+{
+    return;
+}
+
+@{
+    var titleModel = Model as IUfTitle;
+    var dateModel = Model as IUfDisplayDate;
+    var imageModel = Model as IUfImage;
+    var summaryModel = Model as IUfSummary;
+}
+
+@if (titleModel != null)
+{
+    <title>@titleModel.Title</title>
+    <meta name="twitter:title" content="@titleModel.Title">
+    <meta property="og:title" content="@titleModel.Title" />
+}
+else
+{
+    <title>@Model.Name</title>
+    <meta name="twitter:title" content="@Model.Name">
+    <meta property="og:title" content="@Model.Name" />
+}
+
+@if (summaryModel != null)
+{
+    var desc = @UF.StripHtmlSimple(summaryModel.Summary?.ToString());
+
+    <meta name="description" content="@desc" />
+    <meta name="twitter:description" content="@desc">
+    <meta property="og:description" content="@desc" />
+}
+
+
+@if (imageModel != null && imageModel.Image?.Url() != null)
+{
+    var leftPart = $"{Request.Url.Scheme}://{Request.Url.Authority}";
+    var url = imageModel.Image.GetCropUrl(1200, 630);
+    var fullUrl = leftPart + url;
+
+    <meta name="twitter:image" content="@fullUrl">
+    <meta property="og:image" content="@fullUrl" />
+}
+
+<meta name="twitter:card" content="summary_large_image">
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="@Model.Url(mode: UrlMode.Absolute)" />

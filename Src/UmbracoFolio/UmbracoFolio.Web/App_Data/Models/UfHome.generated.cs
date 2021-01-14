@@ -21,7 +21,7 @@ namespace Umbraco.Web.PublishedModels
 {
 	/// <summary>UF.Home</summary>
 	[PublishedModel("ufHome")]
-	public partial class UfHome : PublishedContentModel, IUfContent
+	public partial class UfHome : PublishedContentModel, IUfContent, IUfImage, IUfSummary, IUfTitle
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -50,5 +50,26 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
 		[ImplementPropertyType("content")]
 		public global::Umbraco.Core.Models.Blocks.BlockListModel Content => global::Umbraco.Web.PublishedModels.UfContent.GetContent(this);
+
+		///<summary>
+		/// Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		[ImplementPropertyType("image")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image => global::Umbraco.Web.PublishedModels.UfImage.GetImage(this);
+
+		///<summary>
+		/// Summary
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		[ImplementPropertyType("summary")]
+		public global::System.Web.IHtmlString Summary => global::Umbraco.Web.PublishedModels.UfSummary.GetSummary(this);
+
+		///<summary>
+		/// Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		[ImplementPropertyType("title")]
+		public string Title => global::Umbraco.Web.PublishedModels.UfTitle.GetTitle(this);
 	}
 }

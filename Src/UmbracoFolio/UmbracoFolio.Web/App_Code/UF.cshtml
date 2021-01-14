@@ -60,4 +60,12 @@
             Previous = previousItem
         };
     }
+
+    public static string StripHtmlSimple(string HTMLText)
+    {
+        if (HTMLText == null) return null;
+
+        var reg = new System.Text.RegularExpressions.Regex("<[^>]+>", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+        return reg.Replace(HTMLText, "");
+    }
 }
