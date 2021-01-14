@@ -2,7 +2,7 @@
 @{
     Layout = null;
 
-    var settings = UmbracoFolio.Web.Helpers.SettingsHelper.GetSiteSettings(Model);
+    var settings = UFSettings.GetSiteSettings(Model);
     var cachePeriod = 1; // 60 * 60; // 1 hour
 }
 <!doctype html>

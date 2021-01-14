@@ -379,8 +379,6 @@
     <Compile Include="App_Data\Models\UfSummary.generated.cs" />
     <Compile Include="App_Data\Models\UfTags.generated.cs" />
     <Compile Include="App_Data\Models\UfTitle.generated.cs" />
-    <Compile Include="Helpers\NavigationHelper.cs" />
-    <Compile Include="Helpers\SettingsHelper.cs" />
     <Compile Include="Models\NextPrevious.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -408,6 +406,7 @@
     <Content Include="assets\scss\components\utilities.scss" />
     <Content Include="assets\scss\components\images.scss" />
     <Content Include="assets\scss\components\content.scss" />
+    <Content Include="App_Code\UFSettings.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

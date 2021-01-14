@@ -6,7 +6,7 @@
 
 @helper RenderNavListItem(Link link, string currentPagePath, string classes)
 {
-    var activeClass = UmbracoFolio.Web.Helpers.NavigationHelper.IsPageActive(link.Url, currentPagePath)
+    var activeClass = IsPageActive(link.Url, currentPagePath)
                         ? "uk-active"
                         : "";
 
@@ -22,6 +22,11 @@
 }
 
 @functions{
+    public static bool IsPageActive(string pageUrl, string currentPagePath)
+    {
+        return currentPagePath.StartsWith(pageUrl);
+    }
+
     public static string GetArticleDate(Umbraco.Web.PublishedModels.IUfDisplayDate articleDate)
     {
         if (articleDate == null) return null;
