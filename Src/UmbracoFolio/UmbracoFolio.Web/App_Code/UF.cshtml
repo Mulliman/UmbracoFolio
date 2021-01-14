@@ -6,11 +6,23 @@
 
 @helper RenderNavListItem(Link link, string currentPagePath, string classes)
 {
+
+    <!-- @currentPagePath starts with @link.Url -->
     var activeClass = IsPageActive(link.Url, currentPagePath)
                         ? "uk-active"
                         : "";
 
     <li class="@activeClass @classes"><a href="@link.Url">@link.Name</a></li>
+}
+
+@helper RenderNavListItem(IPublishedContent page, string currentPagePath, string classes)
+{
+    <!-- @currentPagePath starts with @page.Url -->
+    var activeClass = IsPageActive(page.Url(), currentPagePath)
+                        ? "uk-active"
+                        : "";
+
+    <li class="@activeClass @classes"><a href="@page.Url()">@page.Name</a></li>
 }
 
 @helper RenderBlockComponent(System.Web.Mvc.HtmlHelper html, Umbraco.Core.Models.Blocks.BlockListItem block, string classes = "")
@@ -22,9 +34,9 @@
 }
 
 @functions{
-    public static bool IsPageActive(string pageUrl, string currentPagePath)
+    public static bool IsPageActive(string linkUrl, string currentPagePath)
     {
-        return currentPagePath.StartsWith(pageUrl);
+        return currentPagePath.Trim('/', ' ').StartsWith(linkUrl.Trim('/', ' '));
     }
 
     public static string GetArticleDate(Umbraco.Web.PublishedModels.IUfDisplayDate articleDate)

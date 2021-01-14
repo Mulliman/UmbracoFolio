@@ -21,7 +21,7 @@ namespace Umbraco.Web.PublishedModels
 {
 	/// <summary>UF.Hub</summary>
 	[PublishedModel("ufHub")]
-	public partial class UfHub : PublishedContentModel, IUfContent, IUfImage, IUfSummary, IUfTitle
+	public partial class UfHub : PublishedContentModel, IUfBasePage, IUfContent, IUfImage, IUfSummary, IUfTitle
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -43,6 +43,13 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Hide From Navigation
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		[ImplementPropertyType("umbracoNaviHide")]
+		public bool UmbracoNaviHide => global::Umbraco.Web.PublishedModels.UfBasePage.GetUmbracoNaviHide(this);
 
 		///<summary>
 		/// Content

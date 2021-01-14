@@ -340,7 +340,9 @@
     <Compile Include="App_Data\Models\UfArticleListing.generated.cs" />
     <Compile Include="App_Data\Models\UfArticleListingFancy.generated.cs" />
     <Compile Include="App_Data\Models\UfAsideContent.generated.cs" />
+    <Compile Include="App_Data\Models\UfBasePage.generated.cs" />
     <Compile Include="App_Data\Models\UfCardsFull.generated.cs" />
+    <Compile Include="App_Data\Models\UfCardsNavigation.generated.cs" />
     <Compile Include="App_Data\Models\UfCardsSimpleImage.generated.cs" />
     <Compile Include="App_Data\Models\UfCardsSimpleText.generated.cs" />
     <Compile Include="App_Data\Models\UfColumns.generated.cs" />
@@ -453,6 +455,7 @@
     <Content Include="Views\Partials\BlockList\Components\UFFancyNextPrevious.cshtml" />
     <Content Include="Views\Partials\BlockList\Components\UFArticleListingFancy.cshtml" />
     <Content Include="Views\Partials\UF\_Meta.cshtml" />
+    <Content Include="Views\Partials\BlockList\Components\UFCardsNavigation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

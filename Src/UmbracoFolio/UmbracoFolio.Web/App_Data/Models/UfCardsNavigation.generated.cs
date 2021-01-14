@@ -19,43 +19,36 @@ using Umbraco.ModelsBuilder.Embedded;
 
 namespace Umbraco.Web.PublishedModels
 {
-	/// <summary>UF.Page</summary>
-	[PublishedModel("ufPage")]
-	public partial class UfPage : PublishedContentModel, IUfBasePage, IUfContent
+	/// <summary>UF.Cards.Navigation</summary>
+	[PublishedModel("ufCardsNavigation")]
+	public partial class UfCardsNavigation : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
-		public new const string ModelTypeAlias = "ufPage";
+		public new const string ModelTypeAlias = "ufCardsNavigation";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<UfPage, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<UfCardsNavigation, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public UfPage(IPublishedContent content)
+		public UfCardsNavigation(IPublishedElement content)
 			: base(content)
 		{ }
 
 		// properties
 
 		///<summary>
-		/// Hide From Navigation
+		/// Navigation Type
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
-		[ImplementPropertyType("umbracoNaviHide")]
-		public bool UmbracoNaviHide => global::Umbraco.Web.PublishedModels.UfBasePage.GetUmbracoNaviHide(this);
-
-		///<summary>
-		/// Content
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
-		[ImplementPropertyType("content")]
-		public global::Umbraco.Core.Models.Blocks.BlockListModel Content => global::Umbraco.Web.PublishedModels.UfContent.GetContent(this);
+		[ImplementPropertyType("navigationType")]
+		public string NavigationType => this.Value<string>("navigationType");
 	}
 }

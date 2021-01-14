@@ -1,0 +1,36 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = Model.Content as UfCardsNavigation;
+
+    if(Umbraco.AssignedContentItem.Id == Umbraco.AssignedContentItem.Root().Id)
+    {
+        return;
+    }
+
+    var parent = Umbraco.AssignedContentItem.Parent;
+    var list = Umbraco.AssignedContentItem.SiblingsAndSelf().Where(x => x is IUfBasePage && x.IsVisible()).ToList();
+
+    if(content.NavigationType == "Children and Self")
+    {
+        parent = Umbraco.AssignedContentItem;
+        list = Umbraco.AssignedContentItem.Children().Where(x => x is IUfBasePage && x.IsVisible()).ToList();
+    }
+}
+
+<div class="uk-card uk-card-default uk-card-body uk-margin">
+    <ul class="uk-nav-default uk-nav-parent-icon uk-nav-primary" uk-nav>
+
+        @if (parent.ContentType.Alias != UfHome.ModelTypeAlias)
+        {
+            @UF.RenderNavListItem(parent, Request.Url.LocalPath, "")
+            <li class="uk-nav-divider"></li>
+        }
+
+        @foreach (var item in list)
+        {
+            @UF.RenderNavListItem(item, Request.Url.LocalPath, "")
+        }
+
+    </ul>
+</div>
