@@ -9405,6 +9405,10 @@ iframe.uk-cover {
   .uf-footer .uf-footer-blocks .uk-card {
     background: #070707; }
 
+.uf-footer .uf-copyright-notice {
+  color: #777;
+  margin-bottom: 10px; }
+
 .uf-card--simple-image img {
   width: 80%;
   height: 80%;

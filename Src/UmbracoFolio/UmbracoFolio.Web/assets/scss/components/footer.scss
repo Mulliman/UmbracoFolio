@@ -12,6 +12,8 @@ $footer-mobile-nav-font-size: 1.125rem;
 $footer-mobile-nav-gap-top: 0;
 $footer-mobile-nav-gap-bottom: 10px;
 
+$copyright-font-colour: #777;
+
 .uf-footer {
     .footer-nav {
         li {
@@ -53,5 +55,10 @@ $footer-mobile-nav-gap-bottom: 10px;
         .uk-card {
             background: $footer-nav-block-background-colour;
         }
+    }
+
+    .uf-copyright-notice {
+        color: $copyright-font-colour;
+        margin-bottom:10px;
     }
 }
