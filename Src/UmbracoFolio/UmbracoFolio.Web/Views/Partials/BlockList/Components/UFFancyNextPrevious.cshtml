@@ -86,7 +86,7 @@
 {
     if (article != null)
     {
-        var imageUrl = article.Image?.Url();
+        var imageUrl = UFImages.GetHalfScreenCrop(article.Image);
 
         <div class="u-non-blurred uk-flex uk-flex-middle" style="background-image: url('@imageUrl'); background-size: cover;">
             @*<img src="@imageUrl" alt="" class="uf-cover">*@
@@ -103,7 +103,7 @@
 {
     if (article != null)
     {
-        var imageUrl = article.Image?.Url();
+        var imageUrl = UFImages.GetHalfScreenCrop(article.Image);
 
         <div class="u-non-blurred uk-flex uk-flex-middle" style="background-image: url('@imageUrl'); background-size: cover;">
             @*<img src="@imageUrl" alt="" class="uf-cover">*@
@@ -111,23 +111,6 @@
                 <h4 class="uk-heading-line uk-text-center thin-heading-font uk-margin-remove">@UF.GetArticleDate(article)</h4>
                 <h3 class="uk-heading-line uk-text-center thin-heading-font uk-margin-remove-top">@article.Title</h3>
                 <span class="uk-button uk-button-text uk-margin-top">@content.NextLinkText <span uk-icon="arrow-right"></span></span>
-            </a>
-        </div>
-    }
-}
-
-@helper RenderNextCardOld(UfFancyNextPrevious content, UfArticle article)
-{
-    if (article != null)
-    {
-        var imageUrl = article.Image?.Url();
-
-        <div class="uk-inline u-non-blurred">
-            <img src="@imageUrl" alt="" class="uf-cover">
-            <a href="@article.Url()" class="uk-overlay uk-light uk-position-center uk-text-center uk-link-reset uf-bordered uf-background-dark-translucent uf-compact-text uf-10-pc-gap">
-                <h4 class="uk-heading-line uk-text-center thin-heading-font uk-margin-remove">@UF.GetArticleDate(article)</h4>
-                <h3 class="uk-heading-line uk-text-center thin-heading-font uk-margin-remove-top">@article.Title</h3>
-                <span class="uk-button uk-button-text">@content.NextLinkText <span uk-icon="arrow-right"></span></span>
             </a>
         </div>
     }

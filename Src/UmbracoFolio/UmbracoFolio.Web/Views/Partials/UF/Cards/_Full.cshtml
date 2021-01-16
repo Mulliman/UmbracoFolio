@@ -5,18 +5,22 @@
     return;
 }
 
+@{ 
+    var imageUrl = UFImages.GetHalfScreenCrop(Model.Image);
+}
+
 <div>
     <div class="uk-card uk-card-default uk-margin">
         @if (Model.Link?.Name != null)
         {
             <a href="@Model.Link.Url" target="@Model.Link.Target" class="uk-card-media-top">
-                <img src="@Model.Image.Url()" alt="">
+                <img src="@imageUrl" alt="">
             </a>
         }
         else
         {
             <div class="uk-card-media-top">
-                <img src="@Model.Image.Url()" alt="">
+                <img src="@imageUrl" alt="">
             </div>
         }
 

@@ -1,0 +1,57 @@
+﻿@using Umbraco.Web;
+@using Umbraco.Web.Models;
+@using Umbraco.Core.Models.PublishedContent;
+@using System.Web.Mvc
+@using System.Web.Mvc.Html
+
+@functions{
+    public const int FullScreenCropWidth = 2400;
+    public const int FullWidthCropWidth = 1200;
+    public const int HalfWidthCropWidth = 600;
+    public const int QuarterWidthCropWidth = 300;
+
+    public static string GetCrop(IPublishedContent image, int width)
+    {
+        if(image == null)
+        {
+            return null;
+        }
+
+        return image.GetCropUrl(width: width, height: 0, imageCropMode: ImageCropMode.Min);
+    }
+
+    public static string GetFullScreenCrop(IPublishedContent image)
+    {
+        return GetCrop(image, FullScreenCropWidth);
+    }
+
+    public static string GetFullWidthCrop(IPublishedContent image)
+    {
+        return GetCrop(image, FullWidthCropWidth);
+    }
+
+    public static string GetHalfScreenCrop(IPublishedContent image)
+    {
+        return GetCrop(image, HalfWidthCropWidth);
+    }
+
+    public static string GetQuarterWidthCrop(IPublishedContent image)
+    {
+        return GetCrop(image, QuarterWidthCropWidth);
+    }
+
+    public static string GetCropForNumberOfColumns(IPublishedContent image, int amountOfColumns)
+    {
+        if(amountOfColumns == 4)
+        {
+            return GetCrop(image, QuarterWidthCropWidth);
+        }
+
+        return GetCrop(image, HalfWidthCropWidth);
+    }
+
+    public static string GetCropForNumberOfColumns(IPublishedContent image, decimal amountOfColumns)
+    {
+        return GetCropForNumberOfColumns(image, (int)amountOfColumns);
+    }
+}

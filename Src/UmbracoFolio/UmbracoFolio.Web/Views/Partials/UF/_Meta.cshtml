@@ -38,7 +38,7 @@ else
 @if (imageModel != null && imageModel.Image?.Url() != null)
 {
     var leftPart = $"{Request.Url.Scheme}://{Request.Url.Authority}";
-    var url = imageModel.Image.GetCropUrl(1200, 630);
+    var url = UFImages.GetFullWidthCrop(imageModel.Image);
     var fullUrl = leftPart + url;
 
     <meta name="twitter:image" content="@fullUrl">

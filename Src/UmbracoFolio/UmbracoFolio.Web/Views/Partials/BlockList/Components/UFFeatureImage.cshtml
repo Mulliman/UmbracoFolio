@@ -9,10 +9,14 @@
     return;
 }
 
-<div class="uk-section uk-section-secondary uf-inset-shadow uf-blurred-background-image" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('@content.Image.Url()'); background-size: cover;">
+@{ 
+    var imageUrl = UFImages.GetFullWidthCrop(content.Image);
+}
+
+<div class="uk-section uk-section-secondary uf-inset-shadow uf-blurred-background-image" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('@imageUrl'); background-size: cover;">
     <div class="uk-container">
         <div class="uk-inline uf-non-blurred">
-            <img src="@content.Image.Url()" alt="@content.Image.Name" class="uf-bordered-thick uf-shadowed">
+            <img src="@imageUrl" alt="@content.Image.Name" class="uf-bordered-thick uf-shadowed">
         </div>
     </div>
 </div>

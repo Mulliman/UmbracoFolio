@@ -9,10 +9,14 @@
     return;
 }
 
-<div class="uk-section uk-section-secondary uf-inset-shadow uf-blurred-background-image" uk-parallax="bgy: 200" style="background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('@content.Image.Url()'); background-size: cover;">
+@{ 
+    var imageUrl = UFImages.GetFullWidthCrop(content.Image);
+}
+
+<div class="uk-section uk-section-secondary uf-inset-shadow uf-blurred-background-image" uk-parallax="bgy: 200" style="background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('@imageUrl'); background-size: cover;">
     <div class="uk-container">
         <div class="uk-inline uf-non-blurred uk-visible@s">
-            <img src="@content.Image.Url()" alt="" class="uf-bordered-thick uf-shadowed uk-visibility-m">
+            <img src="@imageUrl" alt="" class="uf-bordered-thick uf-shadowed uk-visibility-m">
             @if (content.RichText != null)
             {
                 <div class="uk-overlay uk-light uk-position-center uf-text-shadow uk-text-center uf-bordered-thin uf-background-dark-translucent uf-compact-text" uk-parallax="opacity: 1,0">

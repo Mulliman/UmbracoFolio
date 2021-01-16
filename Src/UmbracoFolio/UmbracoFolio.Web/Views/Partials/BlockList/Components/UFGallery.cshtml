@@ -25,12 +25,12 @@
         <div class="@gridClass @tabletGridClass uk-grid-column-small uk-grid-row-small"
              uk-grid="masonry: @content.IsMasonry" @Html.Raw(lightboxAttribute)>
 
-            @RenderImages(content.Images, imageBorderClass, content.OpenImagesInLightbox)
+            @RenderImages(content.Images, imageBorderClass, content.OpenImagesInLightbox, (int)content.AmountOfColumns)
         </div>
     </div>
 </div>
 
-@helper RenderImages(IEnumerable<IPublishedContent> imagesAndFolders, string imageBorderClass, bool enableLightbox)
+@helper RenderImages(IEnumerable<IPublishedContent> imagesAndFolders, string imageBorderClass, bool enableLightbox, int amountOfColumns)
 {
     if (imagesAndFolders?.Any() != true)
     {
@@ -41,7 +41,7 @@
     {
         if (imageOrFolder.ContentType.Alias == Folder.ModelTypeAlias)
         {
-            @RenderImages(imageOrFolder.Descendants(), imageBorderClass, enableLightbox);
+            @RenderImages(imageOrFolder.Descendants(), imageBorderClass, enableLightbox, amountOfColumns);
         }
         else if (imageOrFolder.ContentType.Alias == Image.ModelTypeAlias)
         {
@@ -50,17 +50,16 @@
             <div>
                 @if (enableLightbox)
                 {
-                    <a href="@(enableLightbox ? image.Url() : "")" class="uk-card uk-card-default uk-flex uk-flex-center uk-flex-middle">
-                        <img src="@image.Url()" alt="@image.Name" class="uf-image-full-width @imageBorderClass">
+                    <a href="@(enableLightbox ? UFImages.GetFullScreenCrop(image) : "")" class="uk-card uk-card-default uk-flex uk-flex-center uk-flex-middle">
+                        <img src="@UFImages.GetCropForNumberOfColumns(image, amountOfColumns)" alt="@image.Name" class="uf-image-full-width @imageBorderClass">
                     </a>
                 }
                 else
                 {
                     <div class="uk-card uk-card-default uk-flex uk-flex-center uk-flex-middle">
-                        <img src="@image.Url()" alt="@image.Name" class="uf-image-full-width @imageBorderClass">
+                        <img src="@UFImages.GetCropForNumberOfColumns(image, amountOfColumns)" alt="@image.Name" class="uf-image-full-width @imageBorderClass">
                     </div>
                 }
-
             </div>
         }
     }

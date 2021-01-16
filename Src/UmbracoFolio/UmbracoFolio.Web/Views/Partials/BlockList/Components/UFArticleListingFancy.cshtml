@@ -40,7 +40,7 @@
     foreach (var article in articles.Select(a => a as UfArticle).Where(a => a != null))
     {
         var articleDate = UF.GetArticleDate(article);
-        var imageUrl = article.Image != null ? article.Image.Url() : "";
+        var imageUrl = article.Image != null ? UFImages.GetHalfScreenCrop(article.Image) : "";
         <div>
             <div class="fancy-card u-non-blurred uk-flex uk-flex-middle" style="background-image: url('@imageUrl'); background-size: cover;">
                 <a href="@article.Url()" class="uk-light uk-flex-center uk-text-center uk-link-reset uf-bordered uf-background-dark-translucent uf-compact-text uf-margin uf-padding uf-full-width" style="">
