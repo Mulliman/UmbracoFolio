@@ -1,0 +1,37 @@
+﻿<root>
+  <readme>
+    Warning! This is still very much in Beta.
+
+    This has only been tested by me, and I've only done that on my local machine. This was built to be used with xStatic (a static site builder) so I have no idea how this would work on different types of server.
+
+    The big caveat at present is that you must have the model builder using AppData mode and pointing to app_code folder.
+    These are the following web.config > appsettings changes required before installing the package.
+
+    <add key="Umbraco.ModelsBuilder.Enable" value="true" />
+    <add key="Umbraco.ModelsBuilder.ModelsMode" value="AppData" />
+    <add key="Umbraco.ModelsBuilder.ModelsDirectory" value="~/App_Code/Models" />
+    
+    UmbracoFolio has an aim to put at little code as possible in compiled assemblies. This makes it easier to fix any issues you find.
+    There are better starter kits out there, but this one is very easy to play around with and steal code from.
+    
+    You can change sass in the assets folder to theme this. There is minimal styles included by default.
+    
+    You may need to republish the home node and all descendant if the site doesn't show straight after install.    
+  </readme>
+
+  <Actions>
+    <Action runat="install" undo="false" alias="OnUmbracoFolioInstall">
+      <mediaItem folder="UF Sample Logos" name="Combo Logo" path="/media/agjpmcfh/combo.svg" key="08f69219-7aa7-427f-b0f6-69553df84fc1" />
+      <mediaItem folder="UF Sample Logos" name="Combo Logo Light" path="/media/enpdoefv/combo-light.svg" key="10275f25-e8b5-4ae9-a08d-e7260689119b" />
+      <mediaItem folder="UF Sample Pictures" name="Mallard" path="/media/qhsle5jz/mallard.jpg" key="7da2e587-5839-45f1-8d75-e4366567d08e" />
+      <mediaItem folder="UF Sample Pictures" name="Kingfisher In The White Of Winter 1" path="/media/b3bhhskq/kingfisher-in-the-white-of-winter-1.jpg" key="c9734309-4950-4ba0-a57f-967e16332da6" />
+      <mediaItem folder="UF Sample Pictures" name="Robin" path="/media/a4wo5ej4/robin.jpg" key="91efac01-9c3e-49cc-b59a-37456a4d57a8" />
+      <mediaItem folder="UF Sample Pictures" name="King Of The River 1" path="/media/tzjjkkxh/king-of-the-river-1.jpg" key="2a955298-46e7-41bd-8459-d6f8c11b3e9d" />
+      <mediaItem folder="UF Sample Pictures" name="Kingfisher In The Ice" path="/media/2lobdkmh/kingfisher-in-the-ice.jpg" key="a911dde4-a687-4680-a6a0-24911b4c1610" />
+      <mediaItem folder="UF Sample Pictures" name="Duck Bath" path="/media/fwplj43v/duck-bath.jpg" key="fbb49f2b-19b5-488f-a873-bd6063e981e2" />
+      <mediaItem folder="UF Sample Pictures" name="Duck" path="/media/trreqwgj/duck.jpg" key="5848629a-44c9-4043-9eaa-33e6a0effaae" />
+      <mediaItem folder="UF Sample Pictures" name="King Of The River 2" path="/media/lzue3zmt/king-of-the-river-2.jpg" key="e54e6858-9e93-42e7-b0bc-d39092171b3e" />
+      <mediaItem folder="UF Sample Pictures" name="Kingfisher Eating A Fish 1" path="/media/1okhnuoq/kingfisher-eating-a-fish-1.jpg" key="d17695dd-b4d0-4a2d-87fc-1b854b691c99" />
+    </Action>
+  </Actions>
+</root>

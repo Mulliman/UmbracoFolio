@@ -328,61 +328,12 @@
     <Content Include="config\Lang\zh-CN.user.xml" />
     <Content Include="config\logviewer.searches.config.js" />
     <Content Include="Global.asax" />
+    <Content Include="OnInstall.xml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Data\Models\File.generated.cs" />
-    <Compile Include="App_Data\Models\Folder.generated.cs" />
-    <Compile Include="App_Data\Models\Image.generated.cs" />
-    <Compile Include="App_Data\Models\Member.generated.cs" />
-    <Compile Include="App_Data\Models\UfArticle.generated.cs" />
-    <Compile Include="App_Data\Models\UfArticleIntro.generated.cs" />
-    <Compile Include="App_Data\Models\UfArticleListing.generated.cs" />
-    <Compile Include="App_Data\Models\UfArticleListingFancy.generated.cs" />
-    <Compile Include="App_Data\Models\UfAsideContent.generated.cs" />
-    <Compile Include="App_Data\Models\UfAssociatedPage.generated.cs" />
-    <Compile Include="App_Data\Models\UfBasePage.generated.cs" />
-    <Compile Include="App_Data\Models\UfCardsFull.generated.cs" />
-    <Compile Include="App_Data\Models\UfCardsNavigation.generated.cs" />
-    <Compile Include="App_Data\Models\UfCardsSimpleImage.generated.cs" />
-    <Compile Include="App_Data\Models\UfCardsSimpleText.generated.cs" />
-    <Compile Include="App_Data\Models\UfColumns.generated.cs" />
-    <Compile Include="App_Data\Models\UfConfigurationFolder.generated.cs" />
-    <Compile Include="App_Data\Models\UfContent.generated.cs" />
-    <Compile Include="App_Data\Models\UfContentCodeSnippet.generated.cs" />
-    <Compile Include="App_Data\Models\UfContentHeading.generated.cs" />
-    <Compile Include="App_Data\Models\UFcontentPicture.generated.cs" />
-    <Compile Include="App_Data\Models\UFcontentQuote.generated.cs" />
-    <Compile Include="App_Data\Models\UfContentRichText.generated.cs" />
-    <Compile Include="App_Data\Models\UfDisplayDate.generated.cs" />
-    <Compile Include="App_Data\Models\UfFancyNextPrevious.generated.cs" />
-    <Compile Include="App_Data\Models\UfFeatureImage.generated.cs" />
-    <Compile Include="App_Data\Models\UfGallery.generated.cs" />
-    <Compile Include="App_Data\Models\UfGalleryDisplaySettings.generated.cs" />
-    <Compile Include="App_Data\Models\UfGrid.generated.cs" />
-    <Compile Include="App_Data\Models\UfHeadingLevel.generated.cs" />
-    <Compile Include="App_Data\Models\UfHeroFeatureImage.generated.cs" />
-    <Compile Include="App_Data\Models\UfHome.generated.cs" />
-    <Compile Include="App_Data\Models\UfHub.generated.cs" />
-    <Compile Include="App_Data\Models\UfImage.generated.cs" />
-    <Compile Include="App_Data\Models\UfImageBorder.generated.cs" />
-    <Compile Include="App_Data\Models\UfImages.generated.cs" />
-    <Compile Include="App_Data\Models\UfInnerContent.generated.cs" />
-    <Compile Include="App_Data\Models\UfLargeImage.generated.cs" />
-    <Compile Include="App_Data\Models\UfLink.generated.cs" />
-    <Compile Include="App_Data\Models\UFlistingSettings.generated.cs" />
-    <Compile Include="App_Data\Models\UfMainContent.generated.cs" />
-    <Compile Include="App_Data\Models\UFmasonry.generated.cs" />
-    <Compile Include="App_Data\Models\UfNextPrevious.generated.cs" />
-    <Compile Include="App_Data\Models\UfPage.generated.cs" />
-    <Compile Include="App_Data\Models\UfPageContent.generated.cs" />
-    <Compile Include="App_Data\Models\UfRichText.generated.cs" />
-    <Compile Include="App_Data\Models\UFrowSettings.generated.cs" />
-    <Compile Include="App_Data\Models\UfSiteConfiguration.generated.cs" />
-    <Compile Include="App_Data\Models\UfSummary.generated.cs" />
-    <Compile Include="App_Data\Models\UfTags.generated.cs" />
-    <Compile Include="App_Data\Models\UfTitle.generated.cs" />
     <Compile Include="Models\NextPrevious.cs" />
+    <Compile Include="OnInstall.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -404,13 +355,12 @@
     <Content Include="assets\scss\components\header.scss" />
     <Content Include="App_Code\UF.cshtml" />
     <Content Include="assets\scss\components\footer.scss" />
-    <Content Include="App_Data\Models\models.hash" />
     <Content Include="assets\scss\components\cards.scss" />
     <Content Include="assets\scss\components\utilities.scss" />
     <Content Include="assets\scss\components\images.scss" />
     <Content Include="assets\scss\components\content.scss" />
-    <Content Include="App_Code\UFSettings.cshtml" />
     <Content Include="App_Code\UFImages.cshtml" />
+    <Content Include="App_Code\UFSettings.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -465,7 +415,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\Models\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

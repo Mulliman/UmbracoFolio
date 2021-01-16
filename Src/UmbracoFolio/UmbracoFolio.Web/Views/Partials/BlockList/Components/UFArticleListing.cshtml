@@ -48,7 +48,7 @@
                 @if (!content.DoNotShowImages && article.Image != null)
                 {
                     <div class="uk-card-media-top uk-overflow-hidden">
-                        <img class="uk-transition-scale-up uk-transition-opaque" src="@UFImages.GetCropForNumberOfColumns(article.Image, content.AmountOfColumns)" alt="@article.Image.Name">
+                        <img class="uk-transition-scale-up uk-transition-opaque" src="@UFImages.GetCropForNumberOfColumns(article.Image, content.AmountOfColumns)" alt="@(article.Image?.Name)">
                     </div>
                 }
 

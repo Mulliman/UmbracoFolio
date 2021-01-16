@@ -2,7 +2,7 @@
 
 @{
     var content = Model.Content as UfContentPicture;
-    var imageBorderClass = string.IsNullOrEmpty(content?.ImageBorderSize) ? null : "uf-bordered-" + content?.ImageBorderSize.ToLower();
+    var imageBorderClass = string.IsNullOrEmpty(content?.ImageBorderSize) ? null : "uf-bordered-" + content?.ImageBorderSize?.ToLower();
 }
 
 @if (content == null)
@@ -13,7 +13,7 @@
 <div>
     <div class="uk-card uk-margin">
         <div>
-            <img src="@UFImages.GetFullWidthCrop(content.Image)" alt="@content.Image.Name" class="uf-image-full-width @imageBorderClass">
+            <img src="@UFImages.GetFullWidthCrop(content.Image)" alt="@(content.Image?.Name)" class="uf-image-full-width @imageBorderClass">
         </div>
     </div>
 </div>
