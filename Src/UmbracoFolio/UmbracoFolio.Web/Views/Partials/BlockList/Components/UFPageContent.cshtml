@@ -55,14 +55,17 @@
                 </div>
             </div>
 
-            <aside uk-grid class="uk-flex-center">
-                <div class="uk-width-2-3@s">
-                    @foreach (var block in content.AsideContent)
-                    {
-                        @UF.RenderBlockComponent(Html, block)
-                    }
-                </div>
-            </aside>
+            if(content.AsideContent?.Any() == true)
+            {
+                <aside uk-grid class="uk-flex-center">
+                    <div class="uk-width-2-3@s">
+                        @foreach (var block in content.AsideContent)
+                        {
+                            @UF.RenderBlockComponent(Html, block)
+                        }
+                    </div>
+                </aside>
+            }
         }
     </div>
 </div>

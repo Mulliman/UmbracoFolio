@@ -6,18 +6,28 @@
 }
 
 @{ 
-    var imageUrl = UFImages.GetHalfScreenCrop(Model.Image);
+    var image = Model.Image?.Name != null ? Model.Image : (Model.AssociatedPage as IUfImage)?.Image;
+    var imageUrl = UFImages.GetHalfScreenCrop(image);
+
+    var linkHref = Model.Link?.Url != null ? Model.Link.Url : Model.AssociatedPage?.Url();
+    var hasLink = !string.IsNullOrEmpty(linkHref);
+
+    var title = !string.IsNullOrEmpty(Model.Title) ? Model.Title : Model.AssociatedPage?.Name;
+
+    var summary = !string.IsNullOrEmpty(Model.RichText?.ToString()) ? Model.RichText : (Model.AssociatedPage as IUfSummary)?.Summary;
+
+    var linkClasses = hasLink ? "uk-card-hover uk-transition-toggle" : "";
 }
 
 <div>
-    <div class="uk-card uk-card-default uk-margin">
-        @if (Model.Link?.Name != null)
+    <div class="uk-card uk-card-default uk-margin @linkClasses">
+        @if (hasLink && !string.IsNullOrEmpty(imageUrl))
         {
-            <a href="@Model.Link.Url" target="@Model.Link.Target" class="uk-card-media-top">
-                <img src="@imageUrl" alt="">
-            </a>
+            <div target="@(Model.Link?.Target)" class="uk-card-media-top uk-overflow-hidden">
+                <img src="@imageUrl" alt="" class="uk-transition-scale-up uk-transition-opaque">
+            </div>
         }
-        else
+        else if(!string.IsNullOrEmpty(imageUrl))
         {
             <div class="uk-card-media-top">
                 <img src="@imageUrl" alt="">
@@ -25,17 +35,22 @@
         }
 
         <div class="uk-card-body">
-            @if (!string.IsNullOrEmpty(Model.Title))
+            @if (!string.IsNullOrEmpty(title))
             {
-                <h3 class="uk-card-title">@Model.Title</h3>
+                <h3 class="uk-card-title">@title</h3>
             }
 
-            @Html.Raw(Model.RichText)
+            @Html.Raw(summary)
 
             @if (Model.Link?.Name != null)
             {
-                <a href="@Model.Link.Url" target="@Model.Link.Target" class="uk-button uk-button-default">@Model.Link.Name</a>
+                <a href="@linkHref" target="@(Model.Link?.Target)" class="uk-button uk-button-default">@Model.Link.Name</a>
             }
         </div>
+
+        @if (hasLink)
+        {
+            <a href="@linkHref" title="" class="uk-position-cover"></a>
+        }
     </div>
 </div>

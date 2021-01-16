@@ -19,26 +19,35 @@ using Umbraco.ModelsBuilder.Embedded;
 
 namespace Umbraco.Web.PublishedModels
 {
-	/// <summary>UF.Cards.Full</summary>
-	[PublishedModel("ufCardsFull")]
-	public partial class UfCardsFull : PublishedElementModel, IUfAssociatedPage, IUfImage, IUfLink, IUfRichText, IUfTitle
+	// Mixin Content Type with alias "ufAssociatedPage"
+	/// <summary>UF.AssociatedPage</summary>
+	public partial interface IUfAssociatedPage : IPublishedElement
+	{
+		/// <summary>Associated Page</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
+		global::Umbraco.Core.Models.PublishedContent.IPublishedContent AssociatedPage { get; }
+	}
+
+	/// <summary>UF.AssociatedPage</summary>
+	[PublishedModel("ufAssociatedPage")]
+	public partial class UfAssociatedPage : PublishedElementModel, IUfAssociatedPage
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
-		public new const string ModelTypeAlias = "ufCardsFull";
+		public new const string ModelTypeAlias = "ufAssociatedPage";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<UfCardsFull, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<UfAssociatedPage, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public UfCardsFull(IPublishedElement content)
+		public UfAssociatedPage(IPublishedElement content)
 			: base(content)
 		{ }
 
@@ -49,34 +58,10 @@ namespace Umbraco.Web.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
 		[ImplementPropertyType("associatedPage")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent AssociatedPage => global::Umbraco.Web.PublishedModels.UfAssociatedPage.GetAssociatedPage(this);
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent AssociatedPage => GetAssociatedPage(this);
 
-		///<summary>
-		/// Image
-		///</summary>
+		/// <summary>Static getter for Associated Page</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
-		[ImplementPropertyType("image")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image => global::Umbraco.Web.PublishedModels.UfImage.GetImage(this);
-
-		///<summary>
-		/// Link
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
-		[ImplementPropertyType("link")]
-		public global::Umbraco.Web.Models.Link Link => global::Umbraco.Web.PublishedModels.UfLink.GetLink(this);
-
-		///<summary>
-		/// Rich Text
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
-		[ImplementPropertyType("richText")]
-		public global::System.Web.IHtmlString RichText => global::Umbraco.Web.PublishedModels.UfRichText.GetRichText(this);
-
-		///<summary>
-		/// Title
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.10.1")]
-		[ImplementPropertyType("title")]
-		public string Title => global::Umbraco.Web.PublishedModels.UfTitle.GetTitle(this);
+		public static global::Umbraco.Core.Models.PublishedContent.IPublishedContent GetAssociatedPage(IUfAssociatedPage that) => that.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("associatedPage");
 	}
 }

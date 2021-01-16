@@ -7,14 +7,14 @@
     var sectionClass = string.IsNullOrEmpty(settings?.RowColourTheme) ? null : "uk-section-" + settings?.RowColourTheme.ToLower();
     sectionClass += string.IsNullOrEmpty(settings?.Spacing) ? null : " uk-section-" + settings?.Spacing.ToLower();
 
-    var article = Umbraco.AssignedContentItem as UfArticle;
+    var articleTitle = Umbraco.AssignedContentItem as IUfTitle;
+    var articleSummary = Umbraco.AssignedContentItem as IUfSummary;
+    var articleDisplayDate = Umbraco.AssignedContentItem as IUfDisplayDate;
 
-    if (article == null)
+    if (articleTitle == null)
     {
         return;
     }
-
-    var articleDate = UF.GetArticleDate(article);
 }
 
 <div class="uk-section @sectionClass">
@@ -22,20 +22,24 @@
 
         <div uk-grid class="uk-flex-center">
             <div class="uk-width-2-3@s uk-text-center">
+                @{ 
+                    var articleDate = UF.GetArticleDate(articleDisplayDate);
+                }
+                
                 @if (!string.IsNullOrEmpty(articleDate))
                 {
-                    <p class="uk-text-meta uk-margin-remove-bottom"><time datetime="@UF.FormatHtmlDate(article.DisplayDate)">@articleDate</time></p>
-                    <h1 class="uk-margin-remove-top">@article.Title</h1>
+                    <p class="uk-text-meta uk-margin-remove-bottom"><time datetime="@UF.FormatHtmlDate(articleDisplayDate.DisplayDate)">@articleDate</time></p>
+                    <h1 class="uk-margin-remove-top">@articleTitle.Title</h1>
                 }
                 else
                 {
-                    <h1>@article.Title</h1>
+                    <h1>@articleTitle.Title</h1>
                 }
 
-                @if (article.Summary != null)
+                @if (articleSummary?.Summary != null)
                 {
                     <div class="uk-text-lead uk-margin-remove-last-child">
-                        @article.Summary
+                        @articleSummary.Summary
                     </div>
                 }
             </div>
